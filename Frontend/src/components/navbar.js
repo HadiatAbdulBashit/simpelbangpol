@@ -6,14 +6,16 @@ import {
   Button,
   Stack,
   Collapse,
+  Image,
   Icon,
   Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
+  ButtonProps,
+  useColorMode,
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
@@ -21,21 +23,41 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
+import { BsSun, BsMoonStarsFill } from 'react-icons/bs';
+
+const ColorModeToggle = (props: ButtonProps) => {
+  const { colorMode, toggleColorMode } = useColorMode();
+  return (
+    <Flex justifyContent="center" alignItems="center" paddingX={3}>
+      <Button
+        aria-label="Toggle Color Mode"
+        onClick={toggleColorMode}
+        _focus={{ boxShadow: 'none' }}
+        h="40px"
+        {...props}>
+        {colorMode === 'light' ? <BsMoonStarsFill /> : <BsSun />}
+      </Button>
+    </Flex>
+  );
+}
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box>
+    <Box
+    bg={useColorModeValue('#D9D9D9', 'gray.800')}
+    color={useColorModeValue('gray.600', 'white')}
+    align={'center'}>
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
+        position={'sticky'}
         borderBottom={1}
         borderStyle={'solid'}
         borderColor={useColorModeValue('gray.200', 'gray.900')}
+        maxW={'6xl'}
         align={'center'}>
         <Flex
           flex={{ base: 1, md: 'auto' }}
@@ -51,17 +73,23 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'right', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'right', md: 'right' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}>
-            Logo
-          </Text>
-
+          <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50px"} h={"50px"} src={'./logo nav.png'} />
+          <Box textAlign={'left'} px={2}>
+            <Text fontSize={'xl'} as={'b'}>
+              BAKESBANGPOL
+            </Text>
+            <Text fontSize={'sm'} alignItems={'start'}>
+              Pelayanan
+            </Text>
+          </Box>
           
         </Flex>
-        <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+        <Flex 
+        display={{ base: 'none', md: 'flex' }} ml={10}>
           <DesktopNav />
+        </Flex>
+        <Flex>
+          <ColorModeToggle />
         </Flex>
       </Flex>
 
@@ -78,13 +106,13 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
-    <Stack direction={'row'} spacing={10}>
+    <Stack direction={'row'} transition={'all .3s ease'}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
-                p={2}
+                px={5}
                 href={navItem.href ?? '#'}
                 fontSize={'sm'}
                 fontWeight={500}
@@ -119,7 +147,7 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href }: NavItem) => {
   return (
     <Link
       href={href}
@@ -127,16 +155,16 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={'block'}
       p={2}
       rounded={'md'}
-      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+      _hover={{ bg: useColorModeValue('gray.200', 'gray.900') }}>
       <Stack direction={'row'} align={'right'}>
         <Box>
           <Text
             transition={'all .3s ease'}
-            _groupHover={{ color: 'pink.400' }}
+            _groupHover={{ color: '#67282A' }}
+            textAlign={'left'}
             fontWeight={500}>
             {label}
           </Text>
-          <Text fontSize={'sm'}>{subLabel}</Text>
         </Box>
         <Flex
           transition={'all .3s ease'}
@@ -146,7 +174,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           justify={'flex-end'}
           align={'right'}
           flex={1}>
-          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={'#67282A'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -200,7 +228,6 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         <Stack
           mt={2}
           pl={4}
-          bg={'gray.700'}
           borderLeft={1}
           borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.700')}
@@ -219,7 +246,6 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
 
 interface NavItem {
   label: string;
-  subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
 }
@@ -234,17 +260,14 @@ const NAV_ITEMS: Array<NavItem> = [
     children: [
       {
         label: 'Penelitian',
-        subLabel: 'Find your dream design job',
         href: '#',
       },
       {
         label: 'Data dan Wawancara',
-        subLabel: 'An exclusive list for contract work',
         href: '#',
       },
       {
         label: 'PKL / Magang / KKN',
-        subLabel: 'An exclusive list for contract work',
         href: '#',
       },
     ],
