@@ -108,11 +108,7 @@ export default function LargeWithNewsletter() {
               </Stack>
           </Stack>
           <Stack align={'flex-start'} >
-            <Box
-              bg={useColorModeValue('#FFFFFF', 'whatsapp.100')}
-              width={'100%'}
-              height={200}>
-            </Box>
+            <MapsKesbang />
             <Text fontSize={'sm'} align={'left'}>
               Jl. Wastukencana, Babakan Ciamis, Kec. Sumur Bandung, Kota Bandung.
             </Text>
@@ -120,5 +116,11 @@ export default function LargeWithNewsletter() {
         </SimpleGrid>
       </Container>
     </Box>
+  );
+}
+
+function MapsKesbang() {
+  return (
+    <iframe title='Alamat Kesbangpol' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.834065572113!2d107.60714001427564!3d-6.91043526955123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e63a6d8df397%3A0xa78857f0be375298!2sKesbangpol%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1673612753824!5m2!1sid!2sid" width="100%" height="200" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   );
 }

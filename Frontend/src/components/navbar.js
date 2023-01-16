@@ -48,15 +48,18 @@ export default function WithSubnavigation() {
     <Box
     bg={useColorModeValue('#D9D9D9', 'gray.800')}
     color={useColorModeValue('gray.600', 'white')}
+    borderBottom={1}
+    borderStyle={'solid'}
+    borderColor={useColorModeValue('gray.200', 'gray.900')}
+    position={'sticky'}
+    top={0}
+    zIndex={2}
     align={'center'}>
       <Flex
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
         position={'sticky'}
-        borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
         maxW={'6xl'}
         align={'center'}>
         <Flex
