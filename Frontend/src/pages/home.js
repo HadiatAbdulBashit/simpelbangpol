@@ -65,9 +65,12 @@ const Halhal= () => {
       <Stack direction={{ base: 'column', md: 'row' }}>
         <Flex flex={0.5}>
           <Image
+            h={500}
+            w={500}
             alt={'halhal Image'}
             objectFit={'cover'}
-            src={"./halhal.png"}
+            src={"./halhal.svg"}
+            
           />
         </Flex>
         <Flex flex={0.7} align={'center'} justify={'center'}>
@@ -105,9 +108,11 @@ const Persyaratan= () => {
       </Flex>
       <Flex flex={0.5}>
         <Image
-          alt={'persyaratan Image'}
+          h={500}
+          w={500}
+          alt={'halhal Image'}
           objectFit={'cover'}
-          src={"./persyaratan.png"}
+          src={"./persyaratan.svg"}
         />
       </Flex>
     </Stack>
@@ -117,8 +122,8 @@ const Persyaratan= () => {
 const Pelayanan = () => {
   return (
     <Box p={4} align={'center'}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={30}>
-        <Box align={'center'} bgColor={"gray.100"} rounded={"40"}>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={120}>
+        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"}>
             <Image
                 w={200} 
                 h={200}
@@ -126,13 +131,13 @@ const Pelayanan = () => {
             />
             <Text fontSize={'xl'} as={'b'}>Penelitian</Text>
         </Box>
-        <Box align={'center'} bgColor={"gray.100"} rounded={"40"}>
+        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"}>
             <Image
                 src={"./dataMini.png"}
             />
             <Text fontSize={'xl'} as={'b'}>Data/Wawancara</Text>
         </Box>
-        <Box align={'center'} bgColor={"gray.100"} rounded={"40"}>
+        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"}>
             <Image
                 w={200} 
                 h={200}
