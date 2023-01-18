@@ -59,7 +59,6 @@ export default function WithSubnavigation() {
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        position={'sticky'}
         maxW={'6xl'}
         align={'center'}>
         <Flex

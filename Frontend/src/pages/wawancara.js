@@ -35,13 +35,13 @@ const Header = () => {
         align={'center'}
         spacing={{ base: 8, md: 14 }}
         py={4}>
-          <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50vh"} src={'./penelitian.png'} />
+          <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50vh"} src={'./datawan.png'} />
           <Text 
           color={'gray.500'} 
           fontSize={'5xl'}
           mt={0}
           fontWeight={500}>
-            Penelitian
+            Data/Wawancara
           </Text>
           <Stack
           direction={'column'}
@@ -89,7 +89,7 @@ const FormPengajuan = () => {
               Pengajuan Surat
             </Text>
             <Text  fontSize={'4xl'} textAlign={'center'} as={'b'} color={'gray.100'}>
-              Penelitian
+              Data/Wawancara
             </Text>
           </Stack>
           <Box

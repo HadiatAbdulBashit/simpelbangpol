@@ -1,27 +1,43 @@
 import Hero from "../components/hero";
+import Wave from "../components/wave";
 
 import { Box, SimpleGrid, Image, Text, Heading, Stack, Flex } from '@chakra-ui/react';
 
 export default function Home(){
     return (
-        <Flex align={'center'} direction={'column'}>
-        <Hero />
-        <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'center'}>
-              <Text color={'red.800'}>
-                MOTTO
-              </Text>{' '}
-        </Heading>
-        <SimpleThreeColumns />
-        <Halhal />
-        <Persyaratan />
-        <Pelayanan />
-        </Flex>
+        <>
+          <Box align={'center'}>
+            <Hero />
+            <SimpleThreeColumns />
+          </Box>
+          <Wave />
+          <Box backgroundColor={'#67282A'} align={'center'}>
+            <Halhal />
+          </Box>
+          <Wave rotate={'rotate(180deg)'} /> 
+          <Box align={'center'}>
+            <Persyaratan />
+          </Box>
+          <Wave />
+          <Box backgroundColor={'#67282A'} align={'center'}>
+            <Pelayanan />
+          </Box>
+          <Wave rotate={'rotate(180deg)'} />
+        </>
     )
 }
 
 const SimpleThreeColumns = () => {
   return (
-    <Box p={4}>
+    <Box 
+    p={4} 
+    maxW={'6xl'}
+    align={'center'}>
+      <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'center'}>
+            <Text color={'red.800'}>
+              MOTTO
+            </Text>{' '}
+          </Heading>
       <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
         <Box align={'center'}>
             <Image
@@ -62,7 +78,8 @@ const SimpleThreeColumns = () => {
   
 const Halhal= () => {
     return (
-      <Stack direction={{ base: 'column', md: 'row' }}>
+      <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'} 
+      align={'center'}>
         <Flex flex={0.5}>
           <Image
             h={500}
@@ -91,7 +108,8 @@ const Halhal= () => {
 
 const Persyaratan= () => {
   return (
-    <Stack direction={{ base: 'column', md: 'row' }}>
+    <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'}
+    align={'center'}>
       <Flex flex={0.7} align={'center'} justify={'center'}>
         <Stack spacing={6} w={'full'} maxW={'lg'}>
           <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
@@ -121,7 +139,7 @@ const Persyaratan= () => {
 
 const Pelayanan = () => {
   return (
-    <Box p={4} align={'center'}>
+    <Box p={4} align={'center'} maxW={'6xl'}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={120}>
         <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"}>
             <Image

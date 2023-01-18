@@ -31,7 +31,8 @@ export default function LargeWithNewsletter() {
   return (
     <Box
       bg={useColorModeValue('#1B1717', 'gray.900')}
-      color={useColorModeValue('#FFFFFF', 'gray.200')}>
+      color={useColorModeValue('#FFFFFF', 'gray.200')}
+      mt={10}>
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}

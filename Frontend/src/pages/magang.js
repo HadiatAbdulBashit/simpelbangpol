@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import Wave from '../components/wave';
 
-export default function Penelitian() {
+export default function Magang() {
   return (
     <>
       <Header />
@@ -35,13 +35,13 @@ const Header = () => {
         align={'center'}
         spacing={{ base: 8, md: 14 }}
         py={4}>
-          <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50vh"} src={'./penelitian.png'} />
+          <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50vh"} src={'./pkl.png'} />
           <Text 
           color={'gray.500'} 
           fontSize={'5xl'}
           mt={0}
           fontWeight={500}>
-            Penelitian
+            PKL/Magang/KKN/Pengabdian Masyarakat
           </Text>
           <Stack
           direction={'column'}
@@ -89,7 +89,7 @@ const FormPengajuan = () => {
               Pengajuan Surat
             </Text>
             <Text  fontSize={'4xl'} textAlign={'center'} as={'b'} color={'gray.100'}>
-              Penelitian
+              PKL/Magang/KKN/Pengabdian Masyarakat
             </Text>
           </Stack>
           <Box

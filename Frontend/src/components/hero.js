@@ -8,7 +8,7 @@ import {
   
   export default function SplitScreen() {
     return (
-      <Stack direction={{ base: 'column', md: 'row' }}>
+      <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'}>
         <Flex flex={0.7} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'full'} maxW={'lg'}>
             <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
