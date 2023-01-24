@@ -19,7 +19,7 @@ import {
         </Flex>
         <Flex flex={0.7} align={'center'} justify={'center'} alignItems={'center'}>
         <Stack spacing={3} alignItems={'flex-start'}>
-              <Heading fontSize={"2xl"}>
+              <br></br><Heading fontSize={"2xl"}>
                 <Text as={"span"} color={"red.800"}>
                   1. Untuk mengajukan surat penelitian, apakah harus melampirkan proposal?
                 </Text>
@@ -45,7 +45,7 @@ import {
               </Text>
               <Heading fontSize={"2xl"}>
                 <Text as={"span"} color={"red.800"}>
-                4. pada waktu apa saja BAKESBANGPOL beroprasi?
+                4. pada waktu apa saja Bakesbangpol beroprasi?
                 </Text>
               </Heading>
               <Text color={"black.500"}>

@@ -3,7 +3,7 @@ import Wave from "../components/wave";
 
 import { Box, SimpleGrid, Image, Text, Heading, Stack, Flex } from '@chakra-ui/react';
 
-export default function Home(){
+export default function Home() {
     return (
         <>
           <Box align={'center'}>
@@ -86,7 +86,7 @@ const Halhal= () => {
             w={500}
             alt={'halhal Image'}
             objectFit={'cover'}
-            src={"./halhal.svg"}
+            src={"./hal-hal.svg"}
             
           />
         </Flex>
