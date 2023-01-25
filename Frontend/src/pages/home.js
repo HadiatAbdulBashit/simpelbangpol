@@ -2,6 +2,7 @@ import Hero from "../components/hero";
 import Wave from "../components/wave";
 
 import { Box, SimpleGrid, Image, Text, Heading, Stack, Flex } from '@chakra-ui/react';
+import {useNavigate} from "react-router-dom"
 
 export default function Home() {
     return (
@@ -138,10 +139,15 @@ const Persyaratan= () => {
 }
 
 const Pelayanan = () => {
+  const navigate = useNavigate();
   return (
     <Box p={4} align={'center'} maxW={'6xl'}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={120}>
-        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"}>
+        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={()=>navigate("/penelitian")}
+        _hover={{
+          cursor: 'pointer' ,
+        }}
+        >
             <Image
                 w={200} 
                 h={200}
@@ -149,13 +155,21 @@ const Pelayanan = () => {
             />
             <Text fontSize={'xl'} as={'b'}>Penelitian</Text>
         </Box>
-        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"}>
+        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={()=>navigate("/wawancara")}
+        _hover={{
+          cursor: 'pointer' ,
+        }}
+        >
             <Image
                 src={"./dataMini.png"}
             />
             <Text fontSize={'xl'} as={'b'}>Data/Wawancara</Text>
         </Box>
-        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"}>
+        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={()=>navigate("/magang")}
+        _hover={{
+          cursor: 'pointer' ,
+        }}
+        >
             <Image
                 w={200} 
                 h={200}
