@@ -8,7 +8,6 @@ import {
   Collapse,
   Image,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -17,6 +16,7 @@ import {
   ButtonProps,
   useColorMode,
 } from '@chakra-ui/react';
+import { useNavigate, Link } from "react-router-dom";
 import {
   HamburgerIcon,
   CloseIcon,
@@ -43,7 +43,7 @@ const ColorModeToggle = (props: ButtonProps) => {
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
-
+  const navigate = useNavigate();
   return (
     <Box
     bg={useColorModeValue('#D9D9D9', 'gray.800')}
@@ -76,7 +76,9 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'right', md: 'start' }}>
           <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50px"} h={"50px"} src={'./logo nav.png'} />
-          <Box textAlign={'left'} px={2}>
+          <Box textAlign={'left'} px={2} onClick={() => {
+              navigate("/");
+            }}>
             <Text fontSize={'xl'} as={'b'}>
               BAKESBANGPOL
             </Text>
@@ -115,7 +117,7 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Link
                 px={5}
-                href={navItem.href ?? '#'}
+                to={navItem.href ?? '#'}
                 fontSize={'sm'}
                 fontWeight={500}
                 color={linkColor}
@@ -152,7 +154,7 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href }: NavItem) => {
   return (
     <Link
-      href={href}
+      to={href}
       role={'group'}
       display={'block'}
       p={2}
@@ -255,22 +257,22 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: 'Beranda',
-    href: '#',
+    href: '/',
   },
   {
     label: 'Pelayanan',
     children: [
       {
         label: 'Penelitian',
-        href: '#',
+        href: '/penelitian',
       },
       {
         label: 'Data dan Wawancara',
-        href: '#',
+        href: '/wawancara',
       },
       {
         label: 'PKL / Magang / KKN',
-        href: '#',
+        href: '/magang',
       },
     ],
   },
