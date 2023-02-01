@@ -141,9 +141,15 @@ const Persyaratan= () => {
 const Pelayanan = () => {
   const navigate = useNavigate();
   return (
-    <Box p={4} align={'center'} maxW={'6xl'}>
+    <stack>
+      <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'center'}>
+      <Text color={'gray.300'}>
+      Pengajuan Surat
+      </Text>
+    </Heading>
+    <Box p={7} align={'center'} maxW={'6xl'}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={120}>
-        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={()=>navigate("/penelitian")}
+        <Box p={7} h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={()=>navigate("/penelitian")}
         _hover={{
           cursor: 'pointer' ,
         }}
@@ -179,5 +185,6 @@ const Pelayanan = () => {
         </Box>
       </SimpleGrid>
     </Box>
+    </stack>
   );
 }
