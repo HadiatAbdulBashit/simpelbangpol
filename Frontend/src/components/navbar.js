@@ -89,7 +89,7 @@ export default function WithSubnavigation() {
           
         </Flex>
         <Flex 
-        display={{ base: 'none', md: 'flex' }} ml={10}>
+        display={{ base: 'none', md: 'flex' }} ml={10} spacing={50}>
           <DesktopNav />
         </Flex>
         <Flex>
@@ -110,7 +110,7 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
-    <Stack direction={'row'} transition={'all .3s ease'}>
+    <Stack direction={'row'} transition={'all .3s ease'} spacing={50}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -206,7 +206,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
       <Flex
         py={2}
         as={Link}
-        href={href ?? '#'}
+        to={href ?? '#'}
         justify={'space-between'}
         align={'center'}
         _hover={{
@@ -238,7 +238,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           align={'start'}>
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Link key={child.label} py={2} to={child.href}>
                 {child.label}
               </Link>
             ))}
