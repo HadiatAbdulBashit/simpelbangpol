@@ -39,19 +39,18 @@ const Header = () => {
       <Stack
         as={Box}
         align={'center'}
-        spacing={{ base: 8, md: 14 }}
         py={4}>
         <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50vh"} src={'./penelitian.png'} />
         <Text
           color={'gray.500'}
           fontSize={'5xl'}
-          mt={0}
           fontWeight={500}>
           Penelitian
         </Text>
         <Stack
           direction={'column'}
           align={'center'}
+          pt={'10'}
           alignSelf={'center'}
           position={'relative'}>
           <Text
@@ -200,7 +199,7 @@ const FormPengajuan = () => {
           </Text>
         </Stack>
         <Box
-          p={8}>
+          p={3}>
           <Stack spacing={4}>
             <form id="uploadForm" onSubmit={handleSubmit} name="pelayanan_penelitian">
 
@@ -330,7 +329,6 @@ const FormPengajuan = () => {
                   size="lg"
                   bg={'gray.100'}
                   color={'#67282A'}>
-                  Submit
                 </Button>
               </Stack>
             </form>
@@ -338,19 +336,24 @@ const FormPengajuan = () => {
               id='berhasilHore'
               status='success'
               variant='subtle'
+              rounded={'md'}
+              py={'50'}
               display={'none'}
               flexDirection='column'
               alignItems='center'
               justifyContent='center'
+              bgColor={'gray.100'}
               textAlign='center'
-              color={'black'}
-              height='200px'>
-              <AlertIcon boxSize='40px' mr={0} />
-              <AlertTitle mt={4} mb={1} fontSize='lg'>
-                Application submitted!
+              color={'black'}>
+              <AlertIcon boxSize='40px' mr={0} color={'#67282A'} />
+              <AlertTitle mt={4} mb={8} fontSize='lg' color={'#67282A'} >
+                Surat Pengajuan berhasil dikirim!
               </AlertTitle>
-              <AlertDescription maxWidth='sm'>
-                Thanks for submitting your application. Our team will get back to you soon.
+              <AlertDescription maxWidth='sm' color={'#67282A'}>
+                Realisasi penerbitan paling lambat adalah hari yang sama dengan toleransi maksimal 1 (satu) hari kerja
+              </AlertDescription>
+              <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
+                Apabila administrasi tidak lengkap, akan ada keterlambatan untuk penerbitan surat keterangan !!!
               </AlertDescription>
             </Alert>
           </Stack>

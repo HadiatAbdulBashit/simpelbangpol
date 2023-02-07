@@ -114,6 +114,7 @@ const DesktopNav = () => {
         <Box 
         key={navItem.label} 
         px={3} 
+        fontWeight={600}
         _hover={{
           color: linkHoverColor,
         }}>
@@ -122,7 +123,6 @@ const DesktopNav = () => {
               <Link
                 to={navItem.href ?? '#'}
                 fontSize={'sm'}
-                fontWeight={500}
                 color={linkColor}
                 _hover={{
                   textDecoration: 'none',
