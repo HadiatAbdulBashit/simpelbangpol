@@ -63,7 +63,6 @@ export default function WithSubnavigation() {
         align={'center'}>
         <Flex
           flex={{ base: 1, md: 'auto' }}
-          ml={{ base: -2 }}
           display={{ base: 'flex', md: 'none' }}>
           <IconButton
             onClick={onToggle}
@@ -89,7 +88,7 @@ export default function WithSubnavigation() {
           
         </Flex>
         <Flex 
-        display={{ base: 'none', md: 'flex' }} ml={10} spacing={50}>
+        display={{ base: 'none', md: 'flex' }}>
           <DesktopNav />
         </Flex>
         <Flex>
@@ -110,16 +109,20 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
-    <Stack direction={'row'} transition={'all .3s ease'} spacing={50}>
+    <Stack direction={'row'} transition={'all .3s ease'} >
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
+        <Box 
+        key={navItem.label} 
+        px={3} 
+        fontWeight={600}
+        _hover={{
+          color: linkHoverColor,
+        }}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
-                px={5}
                 to={navItem.href ?? '#'}
                 fontSize={'sm'}
-                fontWeight={500}
                 color={linkColor}
                 _hover={{
                   textDecoration: 'none',
@@ -134,7 +137,7 @@ const DesktopNav = () => {
                 border={0}
                 boxShadow={'xl'}
                 bg={popoverContentBgColor}
-                p={4}
+                p={5}
                 rounded={'xl'}
                 minW={'sm'}>
                 <Stack>
@@ -157,7 +160,7 @@ const DesktopSubNav = ({ label, href }: NavItem) => {
       to={href}
       role={'group'}
       display={'block'}
-      p={2}
+      p={5}
       rounded={'md'}
       _hover={{ bg: useColorModeValue('gray.200', 'gray.900') }}>
       <Stack direction={'row'} align={'right'}>
