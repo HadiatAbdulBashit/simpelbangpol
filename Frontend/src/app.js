@@ -7,6 +7,7 @@ import Penelitian from "./pages/penelitian";
 import Magang from "./pages/magang";
 import Wawancara from "./pages/wawancara";
 import Footer from "./components/footer";
+import ScrollToTop from "./components/totop";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/magang" element={<Magang />} />
         <Route path="/wawancara" element={<Wawancara />}/>
       </Routes>
+      <ScrollToTop />
       <Footer />
     </div>  
   );

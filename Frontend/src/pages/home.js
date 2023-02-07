@@ -141,50 +141,37 @@ const Persyaratan= () => {
 const Pelayanan = () => {
   const navigate = useNavigate();
   return (
-    <stack>
+    <>
       <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'center'}>
-      <Text color={'gray.300'}>
-      Pengajuan Surat
-      </Text>
-    </Heading>
-    <Box p={7} align={'center'} maxW={'6xl'}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={120}>
-        <Box p={7} h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={()=>navigate("/penelitian")}
-        _hover={{
-          cursor: 'pointer' ,
-        }}
-        >
-            <Image
-                w={200} 
-                h={200}
-                src={"./penelitianMini.png"}
-            />
-            <Text fontSize={'xl'} as={'b'}>Penelitian</Text>
-        </Box>
-        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={()=>navigate("/wawancara")}
-        _hover={{
-          cursor: 'pointer' ,
-        }}
-        >
-            <Image
-                src={"./dataMini.png"}
-            />
-            <Text fontSize={'xl'} as={'b'}>Data/Wawancara</Text>
-        </Box>
-        <Box h={260} w={260} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={()=>navigate("/magang")}
-        _hover={{
-          cursor: 'pointer' ,
-        }}
-        >
-            <Image
-                w={200} 
-                h={200}
-                src={"./magangMini.png"}
-            />
-            <Text fontSize={'xl'} as={'b'}>PKL/Magang/KKN</Text>
-        </Box>
-      </SimpleGrid>
-    </Box>
-    </stack>
+        <Text color={'gray.300'}>
+          Pengajuan Surat
+        </Text>
+      </Heading>
+      <Box p={7} align={'center'} maxW={'6xl'}>
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={10} justifyItems={'center'}>
+          <Box p={{ base: 7, sm: 2, md: 7 }}  h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => navigate("/penelitian")}
+            _hover={{
+              cursor: 'pointer',
+            }}>
+            <Image h={150} src={"./penelitianMini.png"} fit={"cover"} />
+            <Text fontSize={{base: 'xl', sm: 'sm', md: 'xl'}} as={'b'}>Penelitian</Text>
+          </Box>
+          <Box p={{ base: 7, sm: 2, md: 7 }} h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => navigate("/wawancara")}
+            _hover={{
+              cursor: 'pointer',
+            }}>
+            <Image h={150} src={"./dataMini.png"} fit={"cover"} />
+            <Text fontSize={{base: 'xl', sm: 'sm', md: 'xl'}} as={'b'}>Data/Wawancara</Text>
+          </Box>
+          <Box p={{ base: 7, sm: 2, md: 7 }} h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => navigate("/magang")}
+            _hover={{
+              cursor: 'pointer',
+            }}>
+            <Image h={150} src={"./magangMini.png"} fit={"cover"} />
+            <Text fontSize={{base: 'xl', sm: 'sm', md: 'xl'}} as={'b'}>PKL/Magang/KKN</Text>
+          </Box>
+        </SimpleGrid>
+      </Box>
+    </>
   );
 }

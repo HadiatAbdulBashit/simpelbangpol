@@ -27,7 +27,7 @@ const Logo = (props: any) => {
   );
 };
 
-export default function LargeWithNewsletter() {
+export default function Footer() {
   return (
     <Box
       bg={useColorModeValue('#1B1717', 'gray.900')}

@@ -40,10 +40,11 @@ const Header = () => {
         as={Box}
         align={'center'}
         py={4}>
-        <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50vh"} src={'./penelitian.png'} />
+        <Image alt={"Hero Image"} fit={"cover"} align={"center"} h={"50vh"} src={'./penelitian.png'} />
         <Text
           color={'gray.500'}
           fontSize={'5xl'}
+          textAlign={'center'}
           fontWeight={500}>
           Penelitian
         </Text>
@@ -354,6 +355,12 @@ const FormPengajuan = () => {
               </AlertDescription>
               <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
                 Apabila administrasi tidak lengkap, akan ada keterlambatan untuk penerbitan surat keterangan !!!
+              </AlertDescription>
+              <AlertDescription fontSize='lg' mt={9} fontWeight={500} color={'#67282A'}>
+                Note
+              </AlertDescription>
+              <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
+                Admin kami akan menghubungi, setelah suratnya selesai 😊
               </AlertDescription>
             </Alert>
           </Stack>

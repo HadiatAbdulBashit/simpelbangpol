@@ -46,15 +46,15 @@ export default function WithSubnavigation() {
   const navigate = useNavigate();
   return (
     <Box
-    bg={useColorModeValue('#D9D9D9', 'gray.800')}
-    color={useColorModeValue('gray.600', 'white')}
-    borderBottom={1}
-    borderStyle={'solid'}
-    borderColor={useColorModeValue('gray.200', 'gray.900')}
-    position={'sticky'}
-    top={0}
-    zIndex={2}
-    align={'center'}>
+      bg={useColorModeValue('#D9D9D9', 'gray.900')}
+      color={useColorModeValue('gray.600', 'white')}
+      borderBottom={1}
+      borderStyle={'solid'}
+      borderColor={useColorModeValue('gray.200', 'gray.900')}
+      position={'sticky'}
+      top={0}
+      zIndex={2}
+      align={'center'}>
       <Flex
         minH={'60px'}
         py={{ base: 2 }}
@@ -73,11 +73,21 @@ export default function WithSubnavigation() {
             aria-label={'Toggle Navigation'}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'right', md: 'start' }}>
-          <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50px"} h={"50px"} src={'./logo nav.png'} />
+        <Flex
+          flex={{ base: 1 }}
+          justify={{ base: 'right', md: 'start' }}>
+          <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50px"} h={"50px"} src={'./logo nav.png'} onClick={() => {
+            navigate("/");
+          }}
+          _hover={{
+            cursor: 'pointer'
+          }}/>
           <Box textAlign={'left'} px={2} onClick={() => {
-              navigate("/");
-            }}>
+            navigate("/");
+          }}
+          _hover={{
+            cursor: 'pointer'
+          }}>
             <Text fontSize={'xl'} as={'b'}>
               BAKESBANGPOL
             </Text>
@@ -85,10 +95,9 @@ export default function WithSubnavigation() {
               Pelayanan
             </Text>
           </Box>
-          
         </Flex>
-        <Flex 
-        display={{ base: 'none', md: 'flex' }}>
+        <Flex
+          display={{ base: 'none', md: 'flex' }}>
           <DesktopNav />
         </Flex>
         <Flex>
@@ -107,23 +116,29 @@ const DesktopNav = () => {
   const linkColor = useColorModeValue('gray.600', 'gray.200');
   const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
-
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <Stack direction={'row'} transition={'all .3s ease'} >
       {NAV_ITEMS.map((navItem) => (
-        <Box 
-        key={navItem.label} 
-        px={3} 
-        fontWeight={600}
-        _hover={{
-          color: linkHoverColor,
-        }}>
+        <Box
+          key={navItem.label}
+          px={3}
+          fontWeight={600}
+          _hover={{
+            color: linkHoverColor,
+          }}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
                 to={navItem.href ?? '#'}
                 fontSize={'sm'}
                 color={linkColor}
+                onClick={goToTop}
                 _hover={{
                   textDecoration: 'none',
                   color: linkHoverColor,
@@ -155,12 +170,19 @@ const DesktopNav = () => {
 };
 
 const DesktopSubNav = ({ label, href }: NavItem) => {
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <Link
       to={href}
       role={'group'}
       display={'block'}
       p={5}
+      onClick={goToTop}
       rounded={'md'}
       _hover={{ bg: useColorModeValue('gray.200', 'gray.900') }}>
       <Stack direction={'row'} align={'right'}>
@@ -203,13 +225,19 @@ const MobileNav = () => {
 
 const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
-
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
         as={Link}
         to={href ?? '#'}
+        onClick={goToTop}
         justify={'space-between'}
         align={'center'}
         _hover={{
@@ -241,7 +269,11 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           align={'start'}>
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} to={child.href}>
+              <Link
+                key={child.label}
+                py={2}
+                onClick={goToTop}
+                to={child.href}>
                 {child.label}
               </Link>
             ))}
