@@ -8,9 +8,9 @@ import {
   
   export default function SplitScreen() {
     return (
-      <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'}>
-        <Flex flex={0.7} align={'center'} justify={'center'}>
-          <Stack spacing={6} w={'full'} maxW={'lg'}>
+      <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'} align={'center'}>
+        <Flex flex={0.7} justify={'center'} align={'center'} position={'relative'}>
+          <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'}>
             <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
               <Text color={'red.800'}>
                 Selamat Datang di SIMPEL BANGPOL

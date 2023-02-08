@@ -34,7 +34,7 @@ const SimpleThreeColumns = () => {
     p={4} 
     maxW={'6xl'}
     align={'center'}>
-      <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'center'}>
+    <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'center'}>
             <Text color={'red.800'}>
               MOTTO
             </Text>{' '}
@@ -84,15 +84,12 @@ const Halhal= () => {
         <Flex flex={0.5}>
           <Image
             h={500}
-            w={500}
-            alt={'halhal Image'}
-            objectFit={'cover'}
+            align={"center"}
             src={"./hal-hal.svg"}
-            
           />
         </Flex>
-        <Flex flex={0.7} align={'center'} justify={'center'}>
-          <Stack spacing={6} w={'full'} maxW={'lg'}>
+        <Flex flex={0.7} justify={'center'} align={'center'} position={'relative'}>
+          <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'}>
             <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
               <Text color={'gray.300'}>
               Hal-hal yang harus diperhatikan
@@ -111,8 +108,8 @@ const Persyaratan= () => {
   return (
     <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'}
     align={'center'}>
-      <Flex flex={0.7} align={'center'} justify={'center'}>
-        <Stack spacing={6} w={'full'} maxW={'lg'}>
+      <Flex flex={0.7} justify={'center'} align={'center'} position={'relative'}>
+        <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'}>
           <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
             <Text color={'red.800'}>
             PERSYARATAN SURAT KETERANGAN PENELITIAN/SURVEY/PRAKTEK KERJA
@@ -128,9 +125,7 @@ const Persyaratan= () => {
       <Flex flex={0.5}>
         <Image
           h={500}
-          w={500}
-          alt={'halhal Image'}
-          objectFit={'cover'}
+          align={"center"}
           src={"./persyaratan.svg"}
         />
       </Flex>
