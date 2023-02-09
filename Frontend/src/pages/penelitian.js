@@ -173,16 +173,18 @@ const FormPengajuan = () => {
     event.preventDefault();
     document.getElementById('tombolKirim').style.display = "none";
     document.getElementById('tombolLoading').style.display = "flex";
+    document.getElementById('hahaGagal').style.display = "none";
     fetch(scriptURL, { method: 'POST', body: new FormData(document.getElementById('uploadForm')) })
-      .then(response => {
-        console.log('Success!', response)
+      .then(() => {
         document.getElementById('uploadForm').style.display = "none";
         document.getElementById('berhasilHore').style.display = "flex";
         document.getElementById('tombolLoading').style.display = "none";
       })
-      .catch(error => console.error('Error!', error.message))
-
-    // 
+      .catch(() => {
+        document.getElementById('hahaGagal').style.display = "flex";
+        document.getElementById('tombolLoading').style.display = "none";
+        document.getElementById('tombolKirim').style.display = "block";
+      })
   }
   return (
     <Container
@@ -236,6 +238,7 @@ const FormPengajuan = () => {
                   <option value='NIM'>NIM</option>
                   <option value='NPM'>NPM</option>
                   <option value='NRP'>NRP</option>
+                  <option value='NRP'>NIP</option>
                 </Select>
               </FormControl>
               <FormControl id="kptKartuPelajar" isRequired align={'left'} py={'2'} >
@@ -253,10 +256,10 @@ const FormPengajuan = () => {
               <FormControl id="suratKampus" isRequired align={'left'} py={'2'} >
                 <FormLabel>Jabatan</FormLabel>
                 <Select icon={<ChevronDownIcon color='#67282A' />} id="jabatan" name='jabatan' variant={'filled'} color={'black'} >
-                  <option value=' '></option>
-                  <option value='Ketua'>Ketua</option>
-                  <option value='Pembimbing'>Pembimbing</option>
-                  <option value='Koordinator'>Koordinator</option>
+                  <option value=' '>-- Jika tidak ada Anggota silakan pilih ini --</option>
+                  <option value='Ketua Peneliti'>Ketua Peneliti</option>
+                  <option value='Penanggung Jawab'>Penanggung Jawab</option>
+                  <option value='Ketua Kelompok'>Ketua Kelompok</option>
                 </Select>
               </FormControl>
               <FormControl id="proposalPenelitian" isRequired align={'left'} py={'2'} >
@@ -362,6 +365,15 @@ const FormPengajuan = () => {
               <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
                 Admin kami akan menghubungi, setelah suratnya selesai 😊
               </AlertDescription>
+            </Alert>
+            <Alert
+              status='error'
+              variant={'solid'}
+              display={'none'}
+              rounded={'md'}
+              id='hahaGagal'>
+              <AlertIcon />
+              Pengiriman Gagal, Periksa kembali jaringan anda!!
             </Alert>
           </Stack>
         </Box>

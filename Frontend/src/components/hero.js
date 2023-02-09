@@ -18,8 +18,8 @@ import {
             </Heading>
             <Text fontSize={{ base: '1xl', md: '1xl', lg: '1xl' }} color={'gray.500'} align={'left'}>
             SIMPEL BANGPOL (Sistem Informasi Pelayanan Bangsa dan Politik) akan membantu
-            akang, teteh untuk pembuatan surat rekomendasi pelaksanaan penelitian, observasi,
-            pkl, magang, kkn, dan lain-lain.
+            akang, teteh untuk pembuatan surat rekomendasi pelaksanaan Penelitian, Observasi,
+            PKL, Magang, KKN, dan Lain-lain.
             </Text>
           </Stack>
         </Flex>

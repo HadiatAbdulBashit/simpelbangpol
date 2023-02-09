@@ -1,7 +1,6 @@
 import {
   Box,
   Container,
-  Link,
   SimpleGrid,
   Image,
   Stack,
@@ -10,6 +9,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { FaInstagram, FaPhone, FaYoutube, FaGlobe } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 const Logo = (props: any) => {
   return (
@@ -28,6 +28,12 @@ const Logo = (props: any) => {
 };
 
 export default function Footer() {
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <Box
       bg={useColorModeValue('#1B1717', 'gray.900')}
@@ -47,9 +53,11 @@ export default function Footer() {
           </Stack>
           <Stack align={'flex-start'}>
             <Text fontWeight={'500'} fontSize={'lg'} mb={2}>Sitemap</Text>
-            <Link href={'#'}>Beranda</Link>
-            <Link href={'#'}>Pelayanan</Link>
-            <Link href={'#'}>FAQ</Link>
+            <Link onClick={goToTop} to={'/'}>Beranda</Link>
+            <Link onClick={goToTop} to={'/penelitian'}>Penelitian</Link>
+            <Link onClick={goToTop} to={'/wawancara'}>Data/Wawancara</Link>
+            <Link onClick={goToTop} to={'/magang'}>PKL/Magang/KKN</Link>
+            <Link onClick={goToTop} to={'/faq'}>FAQ</Link>
           </Stack>
           <Stack 
             align={'flex-start'}>

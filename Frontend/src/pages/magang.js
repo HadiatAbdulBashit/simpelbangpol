@@ -236,6 +236,7 @@ const FormPengajuan = () => {
                   <option value='NIM'>NIM</option>
                   <option value='NPM'>NPM</option>
                   <option value='NRP'>NRP</option>
+                  <option value='NRP'>NIP</option>
                 </Select>
               </FormControl>
               <FormControl id="kptKartuPelajar" isRequired align={'left'} py={'2'} >
@@ -253,10 +254,10 @@ const FormPengajuan = () => {
               <FormControl id="suratKampus" isRequired align={'left'} py={'2'} >
                 <FormLabel>Jabatan</FormLabel>
                 <Select icon={<ChevronDownIcon color='#67282A' />} id="jabatan" name='jabatan' variant={'filled'} color={'black'} >
-                  <option value=' '></option>
-                  <option value='Ketua'>Ketua</option>
-                  <option value='Pembimbing'>Pembimbing</option>
+                  <option value=' '>-- Jika tidak ada Anggota silakan pilih ini --</option>
+                  <option value='Ketua Kelompok'>Ketua Kelompok</option>
                   <option value='Koordinator'>Koordinator</option>
+                  <option value='Penanggung Jawab'>Penanggung Jawab</option>
                 </Select>
               </FormControl>
               <FormControl id="proposalPenelitian" isRequired align={'left'} py={'2'} >
