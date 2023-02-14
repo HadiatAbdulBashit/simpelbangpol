@@ -1,7 +1,7 @@
 import Hero from "../components/hero";
 import Wave from "../components/wave";
 
-import { Box, SimpleGrid, Image, Text, Heading, Stack, Flex } from '@chakra-ui/react';
+import { Box, SimpleGrid, Image, Text, Heading, Stack, Flex, useColorModeValue } from '@chakra-ui/react';
 import {useNavigate} from "react-router-dom"
 
 export default function Home() {
@@ -35,7 +35,7 @@ const SimpleThreeColumns = () => {
     maxW={'6xl'}
     align={'center'}>
     <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'center'}>
-            <Text color={'red.800'}>
+            <Text color={useColorModeValue('red.800', 'white')}>
               MOTTO
             </Text>{' '}
           </Heading>
@@ -109,17 +109,17 @@ const Persyaratan= () => {
     <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'}
     align={'center'}>
       <Flex flex={0.7} justify={'center'} align={'center'} position={'relative'}>
-        <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'}>
+        <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'} color={useColorModeValue('red.800', 'white')}>
           <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
-            <Text color={'red.800'}>
+            <Text>
             PERSYARATAN SURAT KETERANGAN PENELITIAN/SURVEY/PRAKTEK KERJA
             </Text>{' '}
           </Heading>
-          <Text color={'red.800'} align={'left'}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada Yth. H. Bambang Sukardi, M.Si Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
-          <Text color={'red.800'} align={'left'}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar (1) Lembar</Text>
-          <Text color={'red.800'} align={'left'}>3.  Pas Photo 3x4 Berwarna (1) Lembar</Text>
-          <Text color={'red.800'} align={'left'}>4. Proposal (Bagi yang akan Melaksanakan Penelitian)</Text>
-          <Text color={'red.800'} align={'left'}>5. Vaksin 1 & 2, atau 3</Text>
+          <Text align={'left'}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada Yth. H. Bambang Sukardi, M.Si Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
+          <Text align={'left'}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar (1) Lembar</Text>
+          <Text align={'left'}>3. Pas Photo 3x4 Berwarna (1) Lembar</Text>
+          <Text align={'left'}>4. Proposal (Bagi yang akan Melaksanakan Penelitian)</Text>
+          <Text align={'left'}>5. Vaksin 1 & 2, atau 3</Text>
         </Stack>
       </Flex>
       <Flex flex={0.5}>
@@ -142,7 +142,7 @@ const Pelayanan = () => {
           Pengajuan Surat
         </Text>
       </Heading>
-      <Box p={7} align={'center'} maxW={'6xl'}>
+      <Box p={7} align={'center'} maxW={'6xl'} color={'blackAlpha.900'}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={10} justifyItems={'center'}>
           <Box p={{ base: 7, sm: 2, md: 7 }}  h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => navigate("/penelitian")}
             _hover={{

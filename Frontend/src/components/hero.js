@@ -4,6 +4,7 @@ import {
     Image,
     Stack,
     Text,
+    useColorModeValue,
   } from '@chakra-ui/react';
   
   export default function SplitScreen() {
@@ -12,7 +13,7 @@ import {
         <Flex flex={0.7} justify={'center'} align={'center'} position={'relative'}>
           <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'}>
             <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
-              <Text color={'red.800'}>
+              <Text color={useColorModeValue('red.800', 'white')}>
                 Selamat Datang di SIMPEL BANGPOL
               </Text>{' '}
             </Heading>
