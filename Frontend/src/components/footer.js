@@ -7,6 +7,8 @@ import {
   Text,
   Button,
   useColorModeValue,
+  chakra,
+  VisuallyHidden,
 } from '@chakra-ui/react';
 import { FaInstagram, FaPhone, FaYoutube, FaGlobe } from 'react-icons/fa';
 import { Link } from "react-router-dom";
@@ -24,6 +26,37 @@ const Logo = (props: any) => {
       </Box>
       <Image alt={"Hero Image"} fit={"cover"} align={"center"} h={"130px"} src={'./logo nav.png'} />
     </Box>
+  );
+};
+
+const SocialButton = ({
+  children,
+  label,
+  href,
+}: {
+  children: ReactNode;
+  label: string;
+  href: string;
+}) => {
+  return (
+    <chakra.button
+      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+      rounded={'full'}
+      w={8}
+      h={8}
+      cursor={'pointer'}
+      as={'a'}
+      href={href}
+      display={'inline-flex'}
+      alignItems={'center'}
+      justifyContent={'center'}
+      transition={'background 0.3s ease'}
+      _hover={{
+        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+      }}>
+      <VisuallyHidden>{label}</VisuallyHidden>
+      {children}
+    </chakra.button>
   );
 };
 
@@ -99,21 +132,21 @@ export default function Footer() {
                 </Button>
               </Link>
               <Stack direction={'row'} spacing={6} py={5} alignItems={'center'}>
-                <Link href={'https://portal.kesbangpol.bandung.go.id'} target={'_blank'}>
-                  <FaGlobe 
+              <SocialButton label={'Web'} href={'https://portal.kesbangpol.bandung.go.id'} target={'_blank'}>
+              <FaGlobe 
                   color={'#D8B6A4'}
                   size="25px"/>
-                </Link>
-                <Link href={'https://www.youtube.com/@badankesbangpolkotabandung7271'} target={'_blank'}>
-                  <FaYoutube 
+              </SocialButton>
+              <SocialButton label={'Youtube'} href={'https://www.youtube.com/@badankesbangpolkotabandung7271'} target={'_blank'}>
+              <FaYoutube 
                   color={'#D8B6A4'}
                   size="25px"/>
-                </Link>
-                <Link href={'https://www.instagram.com/bakesbangpolkotabandung'} target={'_blank'}>
-                  <FaInstagram 
+              </SocialButton>
+              <SocialButton label={'Instagram'} href={'https://www.instagram.com/bakesbangpolkotabandung'} target={'_blank'}>
+              <FaInstagram 
                   color={'#D8B6A4'}
                   size="25px"/>
-                </Link>
+              </SocialButton>
               </Stack>
           </Stack>
           <Stack align={'flex-start'} >

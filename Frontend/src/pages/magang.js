@@ -3,7 +3,6 @@ import {
   Container,
   Text,
   Button,
-  Link,
   Stack,
   useColorModeValue,
   Image,
@@ -23,6 +22,7 @@ export default function Penelitian() {
   return (
     <>
       <Header />
+      <Persyaratan />
       <Wave />
       <Box
         backgroundColor={'#67282A'}>
@@ -39,49 +39,50 @@ const Header = () => {
       <Stack
         as={Box}
         align={'center'}
-        py={4}>
+        py={4}
+        spacing={7}>
         <Image alt={"Hero Image"} fit={"cover"} align={"center"} h={"50vh"} src={'./pkl.png'} />
         <Text
-          color={'gray.500'}
+          color={useColorModeValue('red.800', 'white')}
           fontSize={'5xl'}
           textAlign={'center'}
           fontWeight={500}>
           PKL / Magang / KKN / Pengabdian Masyarakat
         </Text>
-        <Stack
-          direction={'column'}
-          align={'center'}
-          pt={'10'}
-          alignSelf={'center'}
-          position={'relative'}>
-          <Text
-            color={'gray.500'}
-            fontSize={'lg'}
-            fontWeight={500}>
-            Ambil Form Data Diri
-          </Text>
-          <Link
-            href={'https://docs.google.com/document/d/1b0MoR8wdXdRiF8kOFfUhWXwu_lpc_LAA/edit?usp=sharing&ouid=107978745127769060560&rtpof=true&sd=true'}
-            target={'_blank'}
-            _hover={{
-              textDecoration: 'none'
-            }}>
-            <Button
-              colorScheme={'blackAlpha'}
-              bg={useColorModeValue('#67282A', 'white')}
-              rounded={'full'}
-              px={6}
-              _hover={{
-                bg: useColorModeValue('#4D1315', 'gray'),
-              }}>
-              Disini
-            </Button>
-          </Link>
-        </Stack>
       </Stack>
     </Container>
   );
 };
+
+const Persyaratan= () => {
+  return (
+    <Container maxW={'6xl'} pb={'60px'}>
+      <Stack
+        as={Box}
+        align={'center'}
+        py={4}
+        p={'5'}
+        spacing={'3'}>
+        <Text
+          color={'grey.400'}
+          fontSize={{ base: '1xl', md: '3xl', lg: '1xl' }}
+          textAlign={'center'}
+          fontWeight={500}
+          as='b'
+          >
+          Persyaratan Surat Keterangan Magang/PKL/KKN
+        </Text>
+        <Text color={'grey.300'}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
+          <Text as='b' color={'grey.300'}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
+          <Text align={'left'}>2. Melampirkan Surat Dinas Yang Dibubuhi Cap dan Tanda Tangan atas dasar kesediaan menerima dari Instansi/SKPD Tujuan. </Text>
+          <Text align={'left'}>3. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar</Text>
+          <Text align={'left'}>4. Pas Photo 3x4 Berwarna</Text>
+          <Text align={'left'}>5. Vaksin 1 & 2, atau 3</Text>
+          </Stack>
+      </Container>
+    );
+  } 
+
 
 const FormPengajuan = () => {
   function readFileKTP() {

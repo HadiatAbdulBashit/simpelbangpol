@@ -1,7 +1,7 @@
 import Hero from "../components/hero";
 import Wave from "../components/wave";
 
-import { Box, SimpleGrid, Image, Text, Heading, Stack, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Box, SimpleGrid, Image, Text, Heading, useColorModeValue } from '@chakra-ui/react';
 import {useNavigate} from "react-router-dom"
 
 export default function Home() {
@@ -11,14 +11,14 @@ export default function Home() {
             <Hero />
             <SimpleThreeColumns />
           </Box>
-          <Wave />
+          {/* <Wave />
           <Box backgroundColor={'#67282A'} align={'center'}>
             <Halhal />
           </Box>
           <Wave rotate={'rotate(180deg)'} /> 
           <Box align={'center'}>
             <Persyaratan />
-          </Box>
+          </Box> */}
           <Wave />
           <Box backgroundColor={'#67282A'} align={'center'}>
             <Pelayanan />
@@ -77,61 +77,61 @@ const SimpleThreeColumns = () => {
   );
 }
   
-const Halhal= () => {
-    return (
-      <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'} 
-      align={'center'}>
-        <Flex flex={0.5}>
-          <Image
-            h={500}
-            align={"center"}
-            src={"./hal-hal.svg"}
-          />
-        </Flex>
-        <Flex flex={0.7} justify={'center'} align={'center'} position={'relative'}>
-          <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'}>
-            <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
-              <Text color={'gray.300'}>
-              Hal-hal yang harus diperhatikan
-              </Text>{' '}
-            </Heading>
-            <Text fontSize={{ base: '1xl', md: '1xl', lg: '1xl' }} color={'gray.300'} align={'left'}>1. Bagi Mahasiswa Pelajar yang akan melaksanakan PKL/ Magang/ KKN di lingkungan Pemerintah Kota Bandung agar melengkapi rekomendasi (kesediaan menerima) dari Instansi/SKPD terkait.</Text>
-            <Text fontSize={{ base: '1xl', md: '1xl', lg: '1xl' }} color={'gray.300'} align={'left'}>2. Agar melengkapi bukti telah melaksanakan Vaksinasi dosis 1 dan 2 melalui aplikasi Peduli Lindungi.</Text>
-            <Text fontSize={{ base: '1xl', md: '1xl', lg: '1xl' }} color={'gray.300'} align={'left'}>3. Melampirkan Surat Dinas Terkait Khusus (PKL/ Magang/KKN/Job Training)</Text>
-          </Stack>
-        </Flex>
-      </Stack>
-    );
-}
+// const Halhal= () => {
+//     return (
+//       <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'} 
+//       align={'center'}>
+//         <Flex flex={0.5}>
+//           <Image
+//             h={500}
+//             align={"center"}
+//             src={"./hal-hal.svg"}
+//           />
+//         </Flex>
+//         <Flex flex={0.7} justify={'center'} align={'center'} position={'relative'}>
+//           <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'}>
+//             <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
+//               <Text color={'gray.300'}>
+//               Hal-hal yang harus diperhatikan
+//               </Text>{' '}
+//             </Heading>
+//             <Text fontSize={{ base: '1xl', md: '1xl', lg: '1xl' }} color={'gray.300'} align={'left'}>1. Bagi Mahasiswa Pelajar yang akan melaksanakan PKL/ Magang/ KKN di lingkungan Pemerintah Kota Bandung agar melengkapi rekomendasi (kesediaan menerima) dari Instansi/SKPD terkait.</Text>
+//             <Text fontSize={{ base: '1xl', md: '1xl', lg: '1xl' }} color={'gray.300'} align={'left'}>2. Agar melengkapi bukti telah melaksanakan Vaksinasi dosis 1 dan 2 melalui aplikasi Peduli Lindungi.</Text>
+//             <Text fontSize={{ base: '1xl', md: '1xl', lg: '1xl' }} color={'gray.300'} align={'left'}>3. Melampirkan Surat Dinas Terkait Khusus (PKL/ Magang/KKN/Job Training)</Text>
+//           </Stack>
+//         </Flex>
+//       </Stack>
+//     );
+// }
 
-const Persyaratan= () => {
-  return (
-    <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'}
-    align={'center'}>
-      <Flex flex={0.7} justify={'center'} align={'center'} position={'relative'}>
-        <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'} color={useColorModeValue('red.800', 'white')}>
-          <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
-            <Text>
-            PERSYARATAN SURAT KETERANGAN PENELITIAN/SURVEY/PRAKTEK KERJA
-            </Text>{' '}
-          </Heading>
-          <Text align={'left'}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada Yth. H. Bambang Sukardi, M.Si Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
-          <Text align={'left'}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar (1) Lembar</Text>
-          <Text align={'left'}>3. Pas Photo 3x4 Berwarna (1) Lembar</Text>
-          <Text align={'left'}>4. Proposal (Bagi yang akan Melaksanakan Penelitian)</Text>
-          <Text align={'left'}>5. Vaksin 1 & 2, atau 3</Text>
-        </Stack>
-      </Flex>
-      <Flex flex={0.5}>
-        <Image
-          h={500}
-          align={"center"}
-          src={"./persyaratan.svg"}
-        />
-      </Flex>
-    </Stack>
-  );
-}
+// const Persyaratan= () => {
+//   return (
+//     <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'}
+//     align={'center'}>
+//       <Flex flex={0.7} justify={'center'} align={'center'} position={'relative'}>
+//         <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'} color={useColorModeValue('red.800', 'white')}>
+//           <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
+//             <Text>
+//             PERSYARATAN SURAT KETERANGAN PENELITIAN/SURVEY/PRAKTEK KERJA
+//             </Text>{' '}
+//           </Heading>
+//           <Text align={'left'}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada Yth. H. Bambang Sukardi, M.Si Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
+//           <Text align={'left'}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar (1) Lembar</Text>
+//           <Text align={'left'}>3. Pas Photo 3x4 Berwarna (1) Lembar</Text>
+//           <Text align={'left'}>4. Proposal (Bagi yang akan Melaksanakan Penelitian)</Text>
+//           <Text align={'left'}>5. Vaksin 1 & 2, atau 3</Text>
+//         </Stack>
+//       </Flex>
+//       <Flex flex={0.5}>
+//         <Image
+//           h={500}
+//           align={"center"}
+//           src={"./persyaratan.svg"}
+//         />
+//       </Flex>
+//     </Stack>
+//   );
+// }
 
 const Pelayanan = () => {
   const navigate = useNavigate();
