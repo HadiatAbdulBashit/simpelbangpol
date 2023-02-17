@@ -14,11 +14,11 @@ import {
           <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'}>
             <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
               <Text color={useColorModeValue('red.800', 'white')}>
-                Selamat Datang di SIMPEL BANGPOL
+                Selamat Datang di SIMPEL BANGPOL Kota Bandung
               </Text>{' '}
             </Heading>
             <Text fontSize={{ base: '1xl', md: '1xl', lg: '1xl' }} color={'gray.500'} align={'left'}>
-            SIMPEL BANGPOL (Sistem Informasi Pelayanan Bangsa dan Politik) akan membantu
+            SIMPEL BANGPOL (Sistem Informasi Pelayanan Badan Kesatuan Bangsa dan Politik Kota Bandung) akan membantu
             akang, teteh untuk pembuatan surat rekomendasi pelaksanaan Penelitian, Observasi,
             PKL, Magang, KKN, dan Lain-lain.
             </Text>

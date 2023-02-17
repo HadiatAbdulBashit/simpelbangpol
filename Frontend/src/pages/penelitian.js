@@ -112,17 +112,17 @@ const FormPengajuan = () => {
     };
   }
 
-  function readFileDataDiri() {
-    let file_dataDiri = document.getElementById('attach_dataDiri').files[0];
+  function readFilePasFoto() {
+    let file_pasFoto = document.getElementById('attach_pasFoto').files[0];
 
-    var reader_dataDiri = new FileReader();
+    var reader_pasFoto = new FileReader();
 
-    reader_dataDiri.readAsDataURL(file_dataDiri);
+    reader_pasFoto.readAsDataURL(file_pasFoto);
 
-    reader_dataDiri.onload = function () {
-      document.getElementById('fileContent_dataDiri').value = reader_dataDiri.result;
-      document.getElementById('filename_dataDiri').value = file_dataDiri.name;
-      // console.log(document.getElementById('filename_dataDiri').value)
+    reader_pasFoto.onload = function () {
+      document.getElementById('fileContent_pasFoto').value = reader_pasFoto.result;
+      document.getElementById('filename_pasFoto').value = file_pasFoto.name;
+      // console.log(document.getElementById('filename_pasFoto').value)
     };
   }
 
@@ -167,7 +167,7 @@ const FormPengajuan = () => {
     };
   }
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwerZePKagAHByUxMpUHdvBiEK0FmoYwC7-sacEGegIi8EArffACNN9B7Fn4uq55gEh/exec'
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyl2Kpls7tevXRBbh9To0218FEcTxEDf0oDzF0R7BAuqkOqb5uOU28qQeZyLoxVv0hv/exec'
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -175,20 +175,22 @@ const FormPengajuan = () => {
     document.getElementById('tombolLoading').style.display = "flex";
     document.getElementById('hahaGagal').style.display = "none";
     fetch(scriptURL, { method: 'POST', body: new FormData(document.getElementById('uploadForm')) })
-      .then(() => {
+      .then((response) => {
         document.getElementById('uploadForm').style.display = "none";
         document.getElementById('berhasilHore').style.display = "flex";
         document.getElementById('tombolLoading').style.display = "none";
+        // console.log('Success!', response)
       })
-      .catch(() => {
+      .catch((error) => {
         document.getElementById('hahaGagal').style.display = "flex";
         document.getElementById('tombolLoading').style.display = "none";
         document.getElementById('tombolKirim').style.display = "block";
+        // console.error('Error!', error.message)
       })
   }
   return (
     <Container
-      maxW={'6xl'}
+      maxW={'3xl'}
       color={'white'}
       align={'center'}
       justify={'center'}>
@@ -212,8 +214,8 @@ const FormPengajuan = () => {
               <input type="hidden" value="" name="fileContent_ktm" id="fileContent_ktm" />
               <input type="hidden" value="" name="filename_ktm" id="filename_ktm" />
 
-              <input type="hidden" value="" name="fileContent_dataDiri" id="fileContent_dataDiri" />
-              <input type="hidden" value="" name="filename_dataDiri" id="filename_dataDiri" />
+              <input type="hidden" value="" name="fileContent_pasFoto" id="fileContent_pasFoto" />
+              <input type="hidden" value="" name="filename_pasFoto" id="filename_pasFoto" />
 
               <input type="hidden" value="" name="fileContent_suratKampus" id="fileContent_suratKampus" />
               <input type="hidden" value="" name="filename_suratKampus" id="filename_suratKampus" />
@@ -294,8 +296,8 @@ const FormPengajuan = () => {
                     <Input type="file" id='attach_ktm' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileKTM} />
                   </FormControl>
                   <FormControl isRequired align={'left'} py={'2'} >
-                    <FormLabel>Data Diri</FormLabel>
-                    <Input type="file" id='attach_dataDiri' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileDataDiri} />
+                    <FormLabel>Pas Foto (3x4)</FormLabel>
+                    <Input type="file" id='attach_pasFoto' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFilePasFoto} />
                   </FormControl>
                 </Stack>
                 <Stack flex={1}>

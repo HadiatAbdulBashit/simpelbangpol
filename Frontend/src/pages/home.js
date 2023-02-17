@@ -135,6 +135,12 @@ const SimpleThreeColumns = () => {
 
 const Pelayanan = () => {
   const navigate = useNavigate();
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'center'}>
@@ -144,21 +150,21 @@ const Pelayanan = () => {
       </Heading>
       <Box p={7} align={'center'} maxW={'6xl'} color={'blackAlpha.900'}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={10} justifyItems={'center'}>
-          <Box p={{ base: 7, sm: 2, md: 7 }}  h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => navigate("/penelitian")}
+          <Box p={{ base: 7, sm: 2, md: 7 }}  h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => {navigate("/penelitian"); goToTop();}}
             _hover={{
               cursor: 'pointer',
             }}>
             <Image h={150} src={"./penelitianMini.png"} fit={"cover"} />
             <Text fontSize={{base: 'xl', sm: 'sm', md: 'xl'}} as={'b'}>Penelitian</Text>
           </Box>
-          <Box p={{ base: 7, sm: 2, md: 7 }} h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => navigate("/wawancara")}
+          <Box p={{ base: 7, sm: 2, md: 7 }} h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => {navigate("/wawancara"); goToTop();}}
             _hover={{
               cursor: 'pointer',
             }}>
             <Image h={150} src={"./dataMini.png"} fit={"cover"} />
             <Text fontSize={{base: 'xl', sm: 'sm', md: 'xl'}} as={'b'}>Data/Wawancara</Text>
           </Box>
-          <Box p={{ base: 7, sm: 2, md: 7 }} h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => navigate("/magang")}
+          <Box p={{ base: 7, sm: 2, md: 7 }} h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => {navigate("/magang");  goToTop();}}
             _hover={{
               cursor: 'pointer',
             }}>

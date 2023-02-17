@@ -187,7 +187,7 @@ const FormPengajuan = () => {
   }
   return (
     <Container
-      maxW={'6xl'}
+      maxW={'3xl'}
       color={'white'}
       align={'center'}
       justify={'center'}>
@@ -274,12 +274,16 @@ const FormPengajuan = () => {
                 <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_surat_kampus" name='tanggal_surat_kampus' placeholder="Select Date and Time" size="md" type="date" />
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
-                <FormLabel>Judul Penelitian</FormLabel>
-                <Input id="judul_penelitian" name='judul_penelitian' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
-              </FormControl>
-              <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
                 <FormLabel>No Whatsapp</FormLabel>
                 <Input id="no_hp" name='no_hp' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
+              </FormControl>
+              <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
+                <FormLabel>Tanggal Mulai Pelaksanaan</FormLabel>
+                <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_surat_kampus" name='tanggal_surat_kampus' placeholder="Select Date and Time" size="md" type="date" />
+              </FormControl>
+              <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
+                <FormLabel>Tanggal Akhir Pelaksanaan</FormLabel>
+                <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_surat_kampus" name='tanggal_surat_kampus' placeholder="Select Date and Time" size="md" type="date" />
               </FormControl>
               <Stack
                 direction={{ base: 'column', md: 'row' }}>
@@ -293,7 +297,7 @@ const FormPengajuan = () => {
                     <Input type="file" id='attach_ktm' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileKTM} />
                   </FormControl>
                   <FormControl isRequired align={'left'} py={'2'} >
-                    <FormLabel>Data Diri</FormLabel>
+                    <FormLabel>Pas Foto (3x4)</FormLabel>
                     <Input type="file" id='attach_dataDiri' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileDataDiri} />
                   </FormControl>
                 </Stack>
@@ -307,7 +311,7 @@ const FormPengajuan = () => {
                     <Input type="file" id='attach_vaksin' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileVaksin} />
                   </FormControl>
                   <FormControl isRequired align={'left'} py={'2'} >
-                    <FormLabel>Proposal</FormLabel>
+                    <FormLabel>Surat Dinas Terkait</FormLabel>
                     <Input type="file" id='attach_proposal' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileProposal} />
                   </FormControl>
                 </Stack>

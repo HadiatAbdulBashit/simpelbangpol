@@ -154,19 +154,6 @@ const FormPengajuan = () => {
       // console.log(document.getElementById('filename_vaksin').value)
     };
   }
-  function readFileProposal() {
-    let file_proposal = document.getElementById('attach_proposal').files[0];
-
-    var reader_proposal = new FileReader();
-
-    reader_proposal.readAsDataURL(file_proposal);
-
-    reader_proposal.onload = function () {
-      document.getElementById('fileContent_proposal').value = reader_proposal.result;
-      document.getElementById('filename_proposal').value = file_proposal.name;
-      // console.log(document.getElementById('filename_proposal').value)
-    };
-  }
 
   const scriptURL = 'https://script.google.com/macros/s/AKfycbwerZePKagAHByUxMpUHdvBiEK0FmoYwC7-sacEGegIi8EArffACNN9B7Fn4uq55gEh/exec'
 
@@ -187,7 +174,7 @@ const FormPengajuan = () => {
   }
   return (
     <Container
-      maxW={'6xl'}
+      maxW={'3xl'}
       color={'white'}
       align={'center'}
       justify={'center'}>
@@ -273,10 +260,6 @@ const FormPengajuan = () => {
                 <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_surat_kampus" name='tanggal_surat_kampus' placeholder="Select Date and Time" size="md" type="date" />
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
-                <FormLabel>Judul Penelitian</FormLabel>
-                <Input id="judul_penelitian" name='judul_penelitian' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
-              </FormControl>
-              <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
                 <FormLabel>No Whatsapp</FormLabel>
                 <Input id="no_hp" name='no_hp' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
@@ -292,7 +275,7 @@ const FormPengajuan = () => {
                     <Input type="file" id='attach_ktm' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileKTM} />
                   </FormControl>
                   <FormControl isRequired align={'left'} py={'2'} >
-                    <FormLabel>Data Diri</FormLabel>
+                    <FormLabel>Pas Foto (3x4)</FormLabel>
                     <Input type="file" id='attach_dataDiri' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileDataDiri} />
                   </FormControl>
                 </Stack>
@@ -304,10 +287,6 @@ const FormPengajuan = () => {
                   <FormControl isRequired align={'left'} py={'2'} >
                     <FormLabel>Vaksin</FormLabel>
                     <Input type="file" id='attach_vaksin' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileVaksin} />
-                  </FormControl>
-                  <FormControl isRequired align={'left'} py={'2'} >
-                    <FormLabel>Proposal</FormLabel>
-                    <Input type="file" id='attach_proposal' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileProposal} />
                   </FormControl>
                 </Stack>
               </Stack>
