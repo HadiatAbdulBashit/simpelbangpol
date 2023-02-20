@@ -211,10 +211,12 @@ const FormPengajuan = () => {
               <input type="hidden" value="" name="filename_proposal" id="filename_proposal" />
               <FormControl id="nama" isRequired align={'left'} py={'2'} >
                 <FormLabel>Nama Lengkap</FormLabel>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan Huruf Kapital. Contoh: John Doe)</Text>
                 <Input id="nama" name="nama" type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="judulPenelitian" isRequired align={'left'} py={'2'} >
                 <FormLabel>Alamat</FormLabel>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan Alamat KTP)</Text>
                 <Input id="alamat" name='alamat' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="noWhatsapp" isRequired align={'left'} py={'2'} >
@@ -232,10 +234,12 @@ const FormPengajuan = () => {
               </FormControl>
               <FormControl id="ktm" isRequired align={'left'} py={'2'} >
                 <FormLabel>Tujuan Dinas</FormLabel>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Badan Kesatuan Bangsa dan Politik)</Text>
                 <Input id="tujuan_dinas" name='tujuan_dinas' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="setifikatVaksin" isRequired align={'left'} py={'2'} >
                 <FormLabel>Anggota</FormLabel>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Jane Doe)</Text>
                 <Input id="anggota" name='anggota' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="suratKampus" isRequired align={'left'} py={'2'} >
@@ -249,6 +253,7 @@ const FormPengajuan = () => {
               </FormControl>
               <FormControl id="proposalPenelitian" isRequired align={'left'} py={'2'} >
                 <FormLabel>Nama Kampus</FormLabel>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Universitas Indonesia)</Text>
                 <Input id="nama_kampus" name='nama_kampus' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
@@ -261,6 +266,7 @@ const FormPengajuan = () => {
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
                 <FormLabel>No Whatsapp</FormLabel>
+                <Text fontSize={'sm'} pb={'2'}>(Contoh: 0811xxxxxxxx)</Text>
                 <Input id="no_hp" name='no_hp' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <Stack
