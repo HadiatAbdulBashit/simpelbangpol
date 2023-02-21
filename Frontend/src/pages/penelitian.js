@@ -54,13 +54,14 @@ const Header = () => {
   );
 };
 
-const Persyaratan= () => {
+const Persyaratan = () => {
   return (
     <Container maxW={'6xl'} pb={'60px'}>
       <Stack
         as={Box}
         align={'center'}
         py={4}
+        textAlign={'center'}
         p={'5'}
         spacing={'3'}>
         <Text
@@ -69,19 +70,20 @@ const Persyaratan= () => {
           textAlign={'center'}
           fontWeight={500}
           as='b'
-          >
+        >
           Persyaratan Surat Keterangan Penelitian
         </Text>
-          <Text color={'grey.300'}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
-          <Text as='b' color={'grey.300'}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
-          <Text color={'grey.300'}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar</Text>
-          <Text color={'grey.300'}>3. Pas Photo 3x4 Berwarna</Text>
-          <Text color={'grey.300'}>4. Vaksin 1 & 2, atau 3</Text>
-          <Text color={'grey.300'}>5. Proposal Penelitian</Text>
-        </Stack>
-      </Container>
-    );
-  } 
+        <Text color={'grey.300'}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
+        <Text as='b' color={'grey.300'}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
+        <Text color={'grey.300'}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar</Text>
+        <Text color={'grey.300'}>3. Pas Photo 3x4 Berwarna</Text>
+        <Text color={'grey.300'}>4. Vaksin 1 & 2, atau 3</Text>
+        <Text color={'grey.300'}>5. Proposal Penelitian</Text>
+        <Text color={'grey.300'}>6. Khusus Untuk Lembaga Peneliti / PT / CV Wajib melampirkan Akta Notaris</Text>
+      </Stack>
+    </Container>
+  );
+}
 
 const FormPengajuan = () => {
   function readFileKTP() {
@@ -269,16 +271,16 @@ const FormPengajuan = () => {
                 </Select>
               </FormControl>
               <FormControl id="proposalPenelitian" isRequired align={'left'} py={'2'} >
-                <FormLabel>Nama Kampus</FormLabel>
+                <FormLabel>Nama Kampus / Lembaga / Instansi</FormLabel>
                 <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Universitas Indonesia)</Text>
                 <Input id="nama_kampus" name='nama_kampus' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
-                <FormLabel>No Surat Kampus</FormLabel>
+                <FormLabel>No Surat Kampus / Lembaga / Instansi</FormLabel>
                 <Input id="no_surat_kampus" name='no_surat_kampus' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
-                <FormLabel>Tanggal Surat Kampus</FormLabel>
+                <FormLabel>Tanggal Surat Kampus / Lembaga / Instansi</FormLabel>
                 <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_surat_kampus" name='tanggal_surat_kampus' placeholder="Select Date and Time" size="md" type="date" />
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
@@ -305,6 +307,10 @@ const FormPengajuan = () => {
                   <FormControl isRequired align={'left'} py={'2'} >
                     <FormLabel>Pas Foto (3x4)</FormLabel>
                     <Input type="file" id='attach_pasFoto' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFilePasFoto} />
+                  </FormControl>
+                  <FormControl align={'left'} py={'2'} >
+                    <FormLabel>Akta Notaris (Wajib bagi Lembaga / PT / CV)</FormLabel>
+                    <Input type="file" id='attach_notaris' variant={'unstyled'} _focus={{ color: 'white' }} />
                   </FormControl>
                 </Stack>
                 <Stack flex={1}>
@@ -363,16 +369,16 @@ const FormPengajuan = () => {
                 Surat Pengajuan berhasil dikirim!
               </AlertTitle>
               <AlertDescription maxWidth='sm' color={'#67282A'}>
-                Realisasi penerbitan paling lambat adalah hari yang sama dengan toleransi maksimal 1 (satu) hari kerja
+                REALISASI PELAKSANAAN PROSES SESUAI DENGAN Peraturan Menteri Dalam Negeri Nomor 3 Tahun 2018 tentang Penerbitan Surat Keterangan Penelitian PALING LAMBAT ADALAH MAKSIMAL 5 (LIMA) HARI KERJA.
               </AlertDescription>
               <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
-                Apabila administrasi tidak lengkap, akan ada keterlambatan untuk penerbitan surat keterangan !!!
+                Apabila persyaratan tidak lengkap, akan ada keterlambatan untuk penerbitan surat keterangan !!!
               </AlertDescription>
               <AlertDescription fontSize='lg' mt={9} fontWeight={500} color={'#67282A'}>
                 Note
               </AlertDescription>
               <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
-                Admin kami akan menghubungi, setelah suratnya selesai 😊
+                Admin kami akan menghubungi, ketika persyaratan terdapat kesalahan atau setelah suratnya selesai 😊
               </AlertDescription>
             </Alert>
             <Alert

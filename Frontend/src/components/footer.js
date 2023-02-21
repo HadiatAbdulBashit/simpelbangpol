@@ -8,10 +8,11 @@ import {
   Button,
   useColorModeValue,
   chakra,
+  Link,
   VisuallyHidden,
 } from '@chakra-ui/react';
 import { FaInstagram, FaPhone, FaYoutube, FaGlobe } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link as ReachLink } from "react-router-dom";
 
 const Logo = (props: any) => {
   return (
@@ -86,33 +87,15 @@ export default function Footer() {
           </Stack>
           <Stack align={'flex-start'}>
             <Text fontWeight={'500'} fontSize={'lg'} mb={2}>Sitemap</Text>
-            <Link onClick={goToTop} to={'/'}>Beranda</Link>
-            <Link onClick={goToTop} to={'/penelitian'}>Penelitian</Link>
-            <Link onClick={goToTop} to={'/wawancara'}>Data/Wawancara</Link>
-            <Link onClick={goToTop} to={'/magang'}>PKL/Magang/KKN</Link>
-            <Link onClick={goToTop} to={'/faq'}>FAQ</Link>
+            <ReachLink onClick={goToTop} to={'/'}>Beranda</ReachLink>
+            <ReachLink onClick={goToTop} to={'/penelitian'}>Penelitian</ReachLink>
+            <ReachLink onClick={goToTop} to={'/wawancara'}>Data/Wawancara</ReachLink>
+            <ReachLink onClick={goToTop} to={'/magang'}>PKL/Magang/KKN</ReachLink>
+            <ReachLink onClick={goToTop} to={'/faq'}>FAQ</ReachLink>
           </Stack>
           <Stack 
             align={'flex-start'}>
               <Text fontWeight={'500'} fontSize={'lg'} mb={2}>Contact Us</Text>
-              <Link 
-                href={'https://wa.me/6287824875932'}
-                target={'_blank'}
-                _hover={{ 
-                  textDecoration: 'none' }}>
-                <Button
-                left={'-16px'}
-                  height="44px"
-                  variant="ghost"
-                  color="#DCE2FF"
-                  border={'2px solid transparent'}
-                  _hover={{ 
-                    border: '2px solid #D8B6A4',
-                    textDecoration: 'none' }}
-                  leftIcon={<FaPhone color="#D8B6A4" size="20px" />}>
-                  0878 2487 5932  - Brury
-                </Button>
-              </Link>
               <Link 
                 href={'https://wa.me/6281222515212'}
                 target={'_blank'}
@@ -129,6 +112,24 @@ export default function Footer() {
                     textDecoration: 'none' }}
                   leftIcon={<FaPhone color="#D8B6A4" size="20px" />}>
                   0812 2251 5212  - Andy
+                </Button>
+              </Link>
+              <Link 
+                href={'https://wa.me/6289639204035'}
+                target={'_blank'}
+                _hover={{ 
+                  textDecoration: 'none' }}>
+                <Button
+                left={'-16px'}
+                  height="44px"
+                  variant="ghost"
+                  color="#DCE2FF"
+                  border={'2px solid transparent'}
+                  _hover={{ 
+                    border: '2px solid #D8B6A4',
+                    textDecoration: 'none' }}
+                  leftIcon={<FaPhone color="#D8B6A4" size="20px" />}>
+                  0896 3920 4035  - Admin
                 </Button>
               </Link>
               <Stack direction={'row'} spacing={6} py={5} alignItems={'center'}>
