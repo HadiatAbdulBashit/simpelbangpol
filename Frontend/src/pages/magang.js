@@ -14,6 +14,9 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  Modal,
+  ModalOverlay,
+  useDisclosure,
 } from '@chakra-ui/react';
 import Wave from '../components/wave';
 import { ChevronDownIcon } from '@chakra-ui/icons';
@@ -113,17 +116,17 @@ const FormPengajuan = () => {
     };
   }
 
-  function readFileDataDiri() {
-    let file_dataDiri = document.getElementById('attach_dataDiri').files[0];
+  function readFilePasFoto() {
+    let file_pasFoto = document.getElementById('attach_pasFoto').files[0];
 
-    var reader_dataDiri = new FileReader();
+    var reader_pasFoto = new FileReader();
 
-    reader_dataDiri.readAsDataURL(file_dataDiri);
+    reader_pasFoto.readAsDataURL(file_pasFoto);
 
-    reader_dataDiri.onload = function () {
-      document.getElementById('fileContent_dataDiri').value = reader_dataDiri.result;
-      document.getElementById('filename_dataDiri').value = file_dataDiri.name;
-      // console.log(document.getElementById('filename_dataDiri').value)
+    reader_pasFoto.onload = function () {
+      document.getElementById('fileContent_pasFoto').value = reader_pasFoto.result;
+      document.getElementById('filename_pasFoto').value = file_pasFoto.name;
+      // console.log(document.getElementById('filename_pasFoto').value)
     };
   }
 
@@ -154,36 +157,45 @@ const FormPengajuan = () => {
       // console.log(document.getElementById('filename_vaksin').value)
     };
   }
-  function readFileProposal() {
-    let file_proposal = document.getElementById('attach_proposal').files[0];
+  function readFileSuratDinas() {
+    let file_suratDinas = document.getElementById('attach_suratDinas').files[0];
 
-    var reader_proposal = new FileReader();
+    var reader_suratDinas = new FileReader();
 
-    reader_proposal.readAsDataURL(file_proposal);
+    reader_suratDinas.readAsDataURL(file_suratDinas);
 
-    reader_proposal.onload = function () {
-      document.getElementById('fileContent_proposal').value = reader_proposal.result;
-      document.getElementById('filename_proposal').value = file_proposal.name;
+    reader_suratDinas.onload = function () {
+      document.getElementById('fileContent_suratDinas').value = reader_suratDinas.result;
+      document.getElementById('filename_suratDinas').value = file_suratDinas.name;
       // console.log(document.getElementById('filename_proposal').value)
     };
   }
+  
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwerZePKagAHByUxMpUHdvBiEK0FmoYwC7-sacEGegIi8EArffACNN9B7Fn4uq55gEh/exec'
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbx8lgR4eI8ImiklxzPe5WM6I7DWNVUOyPXK2rWH1jdOL3J4BlVs0G4sjNoON_hRu4kc/exec'
 
   const handleSubmit = (event) => {
     event.preventDefault();
     document.getElementById('tombolKirim').style.display = "none";
     document.getElementById('tombolLoading').style.display = "flex";
+    document.getElementById('hahaGagal').style.display = "none";
+    onOpen();
     fetch(scriptURL, { method: 'POST', body: new FormData(document.getElementById('uploadForm')) })
-      .then(response => {
-        console.log('Success!', response)
+      .then((response) => {
         document.getElementById('uploadForm').style.display = "none";
         document.getElementById('berhasilHore').style.display = "flex";
         document.getElementById('tombolLoading').style.display = "none";
+        onClose();
+        // console.log('Success!', response)
       })
-      .catch(error => console.error('Error!', error.message))
-
-    // 
+      .catch((error) => {
+        document.getElementById('hahaGagal').style.display = "flex";
+        document.getElementById('tombolLoading').style.display = "none";
+        document.getElementById('tombolKirim').style.display = "block";
+        onClose();
+        // console.error('Error!', error.message)
+      })
   }
   return (
     <Container
@@ -211,8 +223,8 @@ const FormPengajuan = () => {
               <input type="hidden" value="" name="fileContent_ktm" id="fileContent_ktm" />
               <input type="hidden" value="" name="filename_ktm" id="filename_ktm" />
 
-              <input type="hidden" value="" name="fileContent_dataDiri" id="fileContent_dataDiri" />
-              <input type="hidden" value="" name="filename_dataDiri" id="filename_dataDiri" />
+              <input type="hidden" value="" name="fileContent_pasFoto" id="fileContent_pasFoto" />
+              <input type="hidden" value="" name="filename_pasFoto" id="filename_pasFoto" />
 
               <input type="hidden" value="" name="fileContent_suratKampus" id="fileContent_suratKampus" />
               <input type="hidden" value="" name="filename_suratKampus" id="filename_suratKampus" />
@@ -220,19 +232,19 @@ const FormPengajuan = () => {
               <input type="hidden" value="" name="fileContent_vaksin" id="fileContent_vaksin" />
               <input type="hidden" value="" name="filename_vaksin" id="filename_vaksin" />
 
-              <input type="hidden" value="" name="fileContent_proposal" id="fileContent_proposal" />
-              <input type="hidden" value="" name="filename_proposal" id="filename_proposal" />
+              <input type="hidden" value="" name="fileContent_suratDinas" id="fileContent_suratDinas" />
+              <input type="hidden" value="" name="filename_suratDinas" id="filename_suratDinas" />
               <FormControl id="nama" isRequired align={'left'} py={'2'} >
                 <FormLabel>Nama Lengkap</FormLabel>
                 <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan Huruf Kapital. Contoh: John Doe)</Text>
                 <Input id="nama" name="nama" type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
-              <FormControl id="judulPenelitian" isRequired align={'left'} py={'2'} >
+              <FormControl isRequired align={'left'} py={'2'} >
                 <FormLabel>Alamat</FormLabel>
                 <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan Alamat KTP)</Text>
                 <Input id="alamat" name='alamat' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
-              <FormControl id="noWhatsapp" isRequired align={'left'} py={'2'} >
+              <FormControl isRequired align={'left'} py={'2'} >
                 <FormLabel>Jenis Nomor Identitas</FormLabel>
                 <Select icon={<ChevronDownIcon color='#67282A' />} id="jenis_no_identitas" name='jenis_no_identitas' variant={'filled'} color={'black'} >
                   <option value='NIK'>NIK</option>
@@ -253,7 +265,8 @@ const FormPengajuan = () => {
               </FormControl>
               <FormControl id="setifikatVaksin" isRequired align={'left'} py={'2'} >
                 <FormLabel>Anggota</FormLabel>
-                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Jane Doe)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Jane Doe, Maemunah)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Jika tidak ada anggota isi dengan "-")</Text>
                 <Input id="anggota" name='anggota' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="suratKampus" isRequired align={'left'} py={'2'} >
@@ -283,13 +296,26 @@ const FormPengajuan = () => {
                 <Text fontSize={'sm'} pb={'2'}>(Contoh: 0811xxxxxxxx)</Text>
                 <Input id="no_hp" name='no_hp' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
+              <FormControl id="Nama"  align={'left'} py={'2'} >
+                <FormLabel>Nama Dinas Tujuan</FormLabel>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Universitas Indonesia)</Text>
+                <Input id="nama_dinas_terkait" name='nama_dinas_terkait' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
+              </FormControl>
+              <FormControl id="dataDiri"  align={'left'} py={'2'} >
+                <FormLabel>No Surat Dinas</FormLabel>
+                <Input id="no_surat_dinas" name='no_surat_dinas' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
+              </FormControl>
+              <FormControl id="dataDiri"  align={'left'} py={'2'} >
+                <FormLabel>Tanggal Surat Dinas</FormLabel>
+                <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_surat_dinas" name='tanggal_surat_dinas' placeholder="Select Date and Time" size="md" type="date" />
+              </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
                 <FormLabel>Tanggal Mulai Pelaksanaan</FormLabel>
-                <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_surat_kampus" name='tanggal_surat_kampus' placeholder="Select Date and Time" size="md" type="date" />
+                <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_mulai" name='tanggal_mulai' placeholder="Select Date and Time" size="md" type="date" />
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
                 <FormLabel>Tanggal Akhir Pelaksanaan</FormLabel>
-                <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_surat_kampus" name='tanggal_surat_kampus' placeholder="Select Date and Time" size="md" type="date" />
+                <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_akhir" name='tanggal_akhir' placeholder="Select Date and Time" size="md" type="date" />
               </FormControl>
               <Stack
                 direction={{ base: 'column', md: 'row' }}>
@@ -304,7 +330,7 @@ const FormPengajuan = () => {
                   </FormControl>
                   <FormControl isRequired align={'left'} py={'2'} >
                     <FormLabel>Pas Foto (3x4)</FormLabel>
-                    <Input type="file" id='attach_dataDiri' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileDataDiri} />
+                    <Input type="file" id='attach_pasFoto' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFilePasFoto} />
                   </FormControl>
                 </Stack>
                 <Stack flex={1}>
@@ -318,7 +344,7 @@ const FormPengajuan = () => {
                   </FormControl>
                   <FormControl isRequired align={'left'} py={'2'} >
                     <FormLabel>Surat Dinas Terkait</FormLabel>
-                    <Input type="file" id='attach_proposal' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileProposal} />
+                    <Input type="file" id='attach_suratDinas' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileSuratDinas} />
                   </FormControl>
                 </Stack>
               </Stack>
@@ -363,19 +389,31 @@ const FormPengajuan = () => {
                 Surat Pengajuan berhasil dikirim!
               </AlertTitle>
               <AlertDescription maxWidth='sm' color={'#67282A'}>
-                Realisasi penerbitan paling lambat adalah hari yang sama dengan toleransi maksimal 1 (satu) hari kerja
+                REALISASI PELAKSANAAN PROSES SESUAI DENGAN Peraturan Menteri Dalam Negeri Nomor 3 Tahun 2018 tentang Penerbitan Surat Keterangan Penelitian PALING LAMBAT ADALAH MAKSIMAL 5 (LIMA) HARI KERJA.
               </AlertDescription>
               <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
-                Apabila administrasi tidak lengkap, akan ada keterlambatan untuk penerbitan surat keterangan !!!
+                Apabila persyaratan tidak lengkap, akan ada keterlambatan untuk penerbitan surat keterangan !!!
               </AlertDescription>
               <AlertDescription fontSize='lg' mt={9} fontWeight={500} color={'#67282A'}>
                 Note
               </AlertDescription>
               <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
-                Admin kami akan menghubungi, setelah suratnya selesai 😊
+                Admin kami akan menghubungi, ketika persyaratan terdapat kesalahan atau setelah suratnya selesai 😊
               </AlertDescription>
             </Alert>
+            <Alert
+              status='error'
+              variant={'solid'}
+              display={'none'}
+              rounded={'md'}
+              id='hahaGagal'>
+              <AlertIcon />
+              Pengiriman Gagal, Periksa kembali jaringan anda!!
+            </Alert>
           </Stack>
+          <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+          </Modal>
         </Box>
       </Stack>
     </Container>

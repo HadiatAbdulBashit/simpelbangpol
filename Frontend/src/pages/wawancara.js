@@ -14,6 +14,9 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  Modal,
+  ModalOverlay,
+  useDisclosure,
 } from '@chakra-ui/react';
 import Wave from '../components/wave';
 import { ChevronDownIcon } from '@chakra-ui/icons';
@@ -55,7 +58,7 @@ const Header = () => {
 };
 
 
-const Persyaratan= () => {
+const Persyaratan = () => {
   return (
     <Container maxW={'6xl'} pb={'60px'}>
       <Stack
@@ -70,18 +73,18 @@ const Persyaratan= () => {
           textAlign={'center'}
           fontWeight={500}
           as='b'
-          >
+        >
           Persyaratan Surat Keterangan Survey Data/Wawancara/Observasi
         </Text>
         <Text color={'grey.300'}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
-          <Text as='b' color={'grey.300'}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
-          <Text color={'grey.300'}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar</Text>
-          <Text color={'grey.300'}>3. Pas Photo 3x4 Berwarna</Text>
-          <Text color={'grey.300'}>4. Vaksin 1 & 2, atau 3</Text>
-          </Stack>
-      </Container>
-    );
-  } 
+        <Text as='b' color={'grey.300'}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
+        <Text color={'grey.300'}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar</Text>
+        <Text color={'grey.300'}>3. Pas Photo 3x4 Berwarna</Text>
+        <Text color={'grey.300'}>4. Vaksin 1 & 2, atau 3</Text>
+      </Stack>
+    </Container>
+  );
+}
 
 
 const FormPengajuan = () => {
@@ -113,17 +116,17 @@ const FormPengajuan = () => {
     };
   }
 
-  function readFileDataDiri() {
-    let file_dataDiri = document.getElementById('attach_dataDiri').files[0];
+  function readFilePasFoto() {
+    let file_pasFoto = document.getElementById('attach_pasFoto').files[0];
 
-    var reader_dataDiri = new FileReader();
+    var reader_pasFoto = new FileReader();
 
-    reader_dataDiri.readAsDataURL(file_dataDiri);
+    reader_pasFoto.readAsDataURL(file_pasFoto);
 
-    reader_dataDiri.onload = function () {
-      document.getElementById('fileContent_dataDiri').value = reader_dataDiri.result;
-      document.getElementById('filename_dataDiri').value = file_dataDiri.name;
-      // console.log(document.getElementById('filename_dataDiri').value)
+    reader_pasFoto.onload = function () {
+      document.getElementById('fileContent_pasFoto').value = reader_pasFoto.result;
+      document.getElementById('filename_pasFoto').value = file_pasFoto.name;
+      // console.log(document.getElementById('filename_pasFoto').value)
     };
   }
 
@@ -155,22 +158,31 @@ const FormPengajuan = () => {
     };
   }
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwerZePKagAHByUxMpUHdvBiEK0FmoYwC7-sacEGegIi8EArffACNN9B7Fn4uq55gEh/exec'
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzpe9mqVJXbTRquxuZ96pCQewD0Ye0pMbm0SdZhrji47ArXpvUgFwtcFs63kuetZW9D5Q/exec'
 
   const handleSubmit = (event) => {
     event.preventDefault();
     document.getElementById('tombolKirim').style.display = "none";
     document.getElementById('tombolLoading').style.display = "flex";
+    document.getElementById('hahaGagal').style.display = "none";
+    onOpen();
     fetch(scriptURL, { method: 'POST', body: new FormData(document.getElementById('uploadForm')) })
-      .then(response => {
-        console.log('Success!', response)
+      .then((response) => {
         document.getElementById('uploadForm').style.display = "none";
         document.getElementById('berhasilHore').style.display = "flex";
         document.getElementById('tombolLoading').style.display = "none";
+        onClose();
+        // console.log('Success!', response)
       })
-      .catch(error => console.error('Error!', error.message))
-
-    // 
+      .catch((error) => {
+        document.getElementById('hahaGagal').style.display = "flex";
+        document.getElementById('tombolLoading').style.display = "none";
+        document.getElementById('tombolKirim').style.display = "block";
+        onClose();
+        // console.error('Error!', error.message)
+      })
   }
   return (
     <Container
@@ -184,7 +196,7 @@ const FormPengajuan = () => {
             Pengajuan Surat
           </Text>
           <Text fontSize={'4xl'} textAlign={'center'} as={'b'} color={'gray.100'}>
-            Data / Wawancara
+            Penelitian
           </Text>
         </Stack>
         <Box
@@ -198,8 +210,8 @@ const FormPengajuan = () => {
               <input type="hidden" value="" name="fileContent_ktm" id="fileContent_ktm" />
               <input type="hidden" value="" name="filename_ktm" id="filename_ktm" />
 
-              <input type="hidden" value="" name="fileContent_dataDiri" id="fileContent_dataDiri" />
-              <input type="hidden" value="" name="filename_dataDiri" id="filename_dataDiri" />
+              <input type="hidden" value="" name="fileContent_pasFoto" id="fileContent_pasFoto" />
+              <input type="hidden" value="" name="filename_pasFoto" id="filename_pasFoto" />
 
               <input type="hidden" value="" name="fileContent_suratKampus" id="fileContent_suratKampus" />
               <input type="hidden" value="" name="filename_suratKampus" id="filename_suratKampus" />
@@ -207,8 +219,6 @@ const FormPengajuan = () => {
               <input type="hidden" value="" name="fileContent_vaksin" id="fileContent_vaksin" />
               <input type="hidden" value="" name="filename_vaksin" id="filename_vaksin" />
 
-              <input type="hidden" value="" name="fileContent_proposal" id="fileContent_proposal" />
-              <input type="hidden" value="" name="filename_proposal" id="filename_proposal" />
               <FormControl id="nama" isRequired align={'left'} py={'2'} >
                 <FormLabel>Nama Lengkap</FormLabel>
                 <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan Huruf Kapital. Contoh: John Doe)</Text>
@@ -226,6 +236,7 @@ const FormPengajuan = () => {
                   <option value='NIM'>NIM</option>
                   <option value='NPM'>NPM</option>
                   <option value='NRP'>NRP</option>
+                  <option value='NRP'>NIP</option>
                 </Select>
               </FormControl>
               <FormControl id="kptKartuPelajar" isRequired align={'left'} py={'2'} >
@@ -239,29 +250,30 @@ const FormPengajuan = () => {
               </FormControl>
               <FormControl id="setifikatVaksin" isRequired align={'left'} py={'2'} >
                 <FormLabel>Anggota</FormLabel>
-                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Jane Doe)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Jane Doe, Maemunah)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Jika tidak ada anggota isi dengan "-")</Text>
                 <Input id="anggota" name='anggota' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="suratKampus" isRequired align={'left'} py={'2'} >
                 <FormLabel>Jabatan</FormLabel>
                 <Select icon={<ChevronDownIcon color='#67282A' />} id="jabatan" name='jabatan' variant={'filled'} color={'black'} >
-                  <option value=' '></option>
-                  <option value='Ketua'>Ketua</option>
-                  <option value='Pembimbing'>Pembimbing</option>
-                  <option value='Koordinator'>Koordinator</option>
+                  <option value=' '>-- Jika tidak ada Anggota silakan pilih ini --</option>
+                  <option value='Ketua Peneliti'>Ketua Peneliti</option>
+                  <option value='Penanggung Jawab'>Penanggung Jawab</option>
+                  <option value='Ketua Kelompok'>Ketua Kelompok</option>
                 </Select>
               </FormControl>
               <FormControl id="proposalPenelitian" isRequired align={'left'} py={'2'} >
-                <FormLabel>Nama Kampus</FormLabel>
+                <FormLabel>Nama Kampus / Lembaga / Instansi</FormLabel>
                 <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Universitas Indonesia)</Text>
                 <Input id="nama_kampus" name='nama_kampus' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
-                <FormLabel>No Surat Kampus</FormLabel>
+                <FormLabel>No Surat Kampus / Lembaga / Instansi</FormLabel>
                 <Input id="no_surat_kampus" name='no_surat_kampus' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
-                <FormLabel>Tanggal Surat Kampus</FormLabel>
+                <FormLabel>Tanggal Surat Kampus / Lembaga / Instansi</FormLabel>
                 <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_surat_kampus" name='tanggal_surat_kampus' placeholder="Select Date and Time" size="md" type="date" />
               </FormControl>
               <FormControl id="dataDiri" isRequired align={'left'} py={'2'} >
@@ -282,7 +294,7 @@ const FormPengajuan = () => {
                   </FormControl>
                   <FormControl isRequired align={'left'} py={'2'} >
                     <FormLabel>Pas Foto (3x4)</FormLabel>
-                    <Input type="file" id='attach_dataDiri' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFileDataDiri} />
+                    <Input type="file" id='attach_pasFoto' variant={'unstyled'} _focus={{ color: 'white' }} onChange={readFilePasFoto} />
                   </FormControl>
                 </Stack>
                 <Stack flex={1}>
@@ -337,19 +349,31 @@ const FormPengajuan = () => {
                 Surat Pengajuan berhasil dikirim!
               </AlertTitle>
               <AlertDescription maxWidth='sm' color={'#67282A'}>
-                Realisasi penerbitan paling lambat adalah hari yang sama dengan toleransi maksimal 1 (satu) hari kerja
+                REALISASI PELAKSANAAN PROSES SESUAI DENGAN Peraturan Menteri Dalam Negeri Nomor 3 Tahun 2018 tentang Penerbitan Surat Keterangan Penelitian PALING LAMBAT ADALAH MAKSIMAL 5 (LIMA) HARI KERJA.
               </AlertDescription>
               <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
-                Apabila administrasi tidak lengkap, akan ada keterlambatan untuk penerbitan surat keterangan !!!
+                Apabila persyaratan tidak lengkap, akan ada keterlambatan untuk penerbitan surat keterangan !!!
               </AlertDescription>
               <AlertDescription fontSize='lg' mt={9} fontWeight={500} color={'#67282A'}>
                 Note
               </AlertDescription>
               <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
-                Admin kami akan menghubungi, setelah suratnya selesai 😊
+                Admin kami akan menghubungi, ketika persyaratan terdapat kesalahan atau setelah suratnya selesai 😊
               </AlertDescription>
             </Alert>
+            <Alert
+              status='error'
+              variant={'solid'}
+              display={'none'}
+              rounded={'md'}
+              id='hahaGagal'>
+              <AlertIcon />
+              Pengiriman Gagal, Periksa kembali jaringan anda!!
+            </Alert>
           </Stack>
+          <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+          </Modal>
         </Box>
       </Stack>
     </Container>

@@ -14,6 +14,9 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  Modal,
+  ModalOverlay,
+  useDisclosure,
 } from '@chakra-ui/react';
 import Wave from '../components/wave';
 import { ChevronDownIcon } from '@chakra-ui/icons';
@@ -168,25 +171,30 @@ const FormPengajuan = () => {
       // console.log(document.getElementById('filename_proposal').value)
     };
   }
+  
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyl2Kpls7tevXRBbh9To0218FEcTxEDf0oDzF0R7BAuqkOqb5uOU28qQeZyLoxVv0hv/exec'
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwqxz8_W3fjLKvErkvNCqWLjzgAVIByRqh-80i47iFmuDoMWJETGarOVkqe44LaPzDy/exec'
 
   const handleSubmit = (event) => {
     event.preventDefault();
     document.getElementById('tombolKirim').style.display = "none";
     document.getElementById('tombolLoading').style.display = "flex";
     document.getElementById('hahaGagal').style.display = "none";
+    onOpen();
     fetch(scriptURL, { method: 'POST', body: new FormData(document.getElementById('uploadForm')) })
       .then((response) => {
         document.getElementById('uploadForm').style.display = "none";
         document.getElementById('berhasilHore').style.display = "flex";
         document.getElementById('tombolLoading').style.display = "none";
+        onClose();
         // console.log('Success!', response)
       })
       .catch((error) => {
         document.getElementById('hahaGagal').style.display = "flex";
         document.getElementById('tombolLoading').style.display = "none";
         document.getElementById('tombolKirim').style.display = "block";
+        onClose();
         // console.error('Error!', error.message)
       })
   }
@@ -258,7 +266,8 @@ const FormPengajuan = () => {
               </FormControl>
               <FormControl id="setifikatVaksin" isRequired align={'left'} py={'2'} >
                 <FormLabel>Anggota</FormLabel>
-                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Jane Doe)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Jane Doe, Maemunah)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Jika tidak ada anggota isi dengan "-")</Text>
                 <Input id="anggota" name='anggota' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="suratKampus" isRequired align={'left'} py={'2'} >
@@ -391,6 +400,9 @@ const FormPengajuan = () => {
               Pengiriman Gagal, Periksa kembali jaringan anda!!
             </Alert>
           </Stack>
+          <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+          </Modal>
         </Box>
       </Stack>
     </Container>

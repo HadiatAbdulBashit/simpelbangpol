@@ -1,5 +1,6 @@
 {
   "name": "kesbangpel",
+  "homepage": "http://pelayanan.kesbangpol.bandung.go.id/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
