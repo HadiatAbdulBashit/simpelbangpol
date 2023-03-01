@@ -236,7 +236,7 @@ const FormPengajuan = () => {
               <input type="hidden" value="" name="filename_suratDinas" id="filename_suratDinas" />
               <FormControl id="nama" isRequired align={'left'} py={'2'} >
                 <FormLabel>Nama Lengkap</FormLabel>
-                <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan Huruf Kapital. Contoh: John Doe)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan Huruf Kapital dan Sesuai dengan KTP. Contoh: KOKOM KOMALASARI, S.S., M.Hum., Ph.D.)</Text>
                 <Input id="nama" name="nama" type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl isRequired align={'left'} py={'2'} >

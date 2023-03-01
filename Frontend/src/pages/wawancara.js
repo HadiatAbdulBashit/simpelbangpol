@@ -221,7 +221,7 @@ const FormPengajuan = () => {
 
               <FormControl id="nama" isRequired align={'left'} py={'2'} >
                 <FormLabel>Nama Lengkap</FormLabel>
-                <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan Huruf Kapital. Contoh: John Doe)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan Huruf Kapital dan Sesuai dengan KTP. Contoh: KOKOM KOMALASARI, S.S., M.Hum., Ph.D.)</Text>
                 <Input id="nama" name="nama" type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="judulPenelitian" isRequired align={'left'} py={'2'} >
@@ -247,6 +247,11 @@ const FormPengajuan = () => {
                 <FormLabel>Tujuan Dinas</FormLabel>
                 <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Badan Kesatuan Bangsa dan Politik)</Text>
                 <Input id="tujuan_dinas" name='tujuan_dinas' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
+              </FormControl>
+              <FormControl id="ktm" isRequired align={'left'} py={'2'} >
+                <FormLabel>Judul Dari Data Yang Akan di Cari</FormLabel>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Efektifitas Penghimpunan Dana Zakat Profesi ASN di Baznas Kota Bandung)</Text>
+                <Input id="judul_data" name='judul_data' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="setifikatVaksin" isRequired align={'left'} py={'2'} >
                 <FormLabel>Anggota</FormLabel>

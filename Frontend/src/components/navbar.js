@@ -44,6 +44,12 @@ const ColorModeToggle = (props: ButtonProps) => {
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <Box
       bg={useColorModeValue('#D9D9D9', 'gray.900')}
@@ -78,12 +84,14 @@ export default function WithSubnavigation() {
           justify={{ base: 'right', md: 'start' }}>
           <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50px"} h={"50px"} src={'./logo nav.png'} onClick={() => {
             navigate("/");
+            goToTop();
           }}
           _hover={{
             cursor: 'pointer'
           }}/>
           <Box textAlign={'left'} px={2} onClick={() => {
             navigate("/");
+            goToTop();
           }}
           _hover={{
             cursor: 'pointer'

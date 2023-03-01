@@ -12,10 +12,10 @@ import {
       <Stack direction={{ base: 'column', md: 'row' }} maxW={'6xl'} align={'center'}>
         <Flex flex={0.7} justify={'center'} align={'center'} position={'relative'}>
           <Stack p={'5'} spacing={6} w={'full'} maxW={'lg'}>
-            <Heading fontSize={{ base: '1xl', md: '2xl', lg: '2xl' }} align={'left'}>
+            <Heading fontSize={'2xl'} align={'left'}>
               <Text color={useColorModeValue('red.800', 'white')}>
                 Selamat Datang di SIMPEL BANGPOL Kota Bandung
-              </Text>{' '}
+              </Text>
             </Heading>
             <Text fontSize={{ base: '1xl', md: '1xl', lg: '1xl' }} color={'gray.500'} align={'left'}>
             SIMPEL BANGPOL (Sistem Informasi Pelayanan Badan Kesatuan Bangsa dan Politik Kota Bandung) akan membantu
