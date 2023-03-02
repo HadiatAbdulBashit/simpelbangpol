@@ -50,7 +50,7 @@ const Header = () => {
           fontSize={'5xl'}
           textAlign={'center'}
           fontWeight={500}>
-          Data / Wawancara
+          Data / Wawancara / Observasi
         </Text>
       </Stack>
     </Container>
@@ -74,7 +74,7 @@ const Persyaratan = () => {
           fontWeight={500}
           as='b'
         >
-          Persyaratan Surat Keterangan Survey Data/Wawancara/Observasi
+          Persyaratan Surat Keterangan Survey Data / Wawancara / Observasi
         </Text>
         <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
         <Text as='b' color={'grey.300'} align={{ base: 'left', sm: 'center' }}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
@@ -196,7 +196,7 @@ const FormPengajuan = () => {
             Pengajuan Surat
           </Text>
           <Text fontSize={'4xl'} textAlign={'center'} as={'b'} color={'gray.100'}>
-            Penelitian
+            Data / Wawancara / Observasi
           </Text>
         </Stack>
         <Box

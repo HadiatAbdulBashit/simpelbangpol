@@ -73,7 +73,7 @@ const Persyaratan= () => {
           fontWeight={500}
           as='b'
           >
-          Persyaratan Surat Keterangan Magang/PKL/KKN
+          Persyaratan Surat Keterangan PKL / Magang / KKN / Pengabdian Masyarakat
         </Text>
         <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
           <Text as='b' color={'grey.300'} align={{ base: 'left', sm: 'center' }}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
