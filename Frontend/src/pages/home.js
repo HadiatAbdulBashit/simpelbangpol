@@ -154,21 +154,21 @@ const Pelayanan = () => {
             _hover={{
               cursor: 'pointer',
             }}>
-            <Image h={150} src={"./penelitianMini.png"} fit={"cover"} />
+            <Image h={150} src={"./penelitian.svg"} fit={"cover"} />
             <Text fontSize={{base: 'xl', sm: 'sm', md: 'xl'}} as={'b'}>Penelitian</Text>
           </Box>
           <Box p={{ base: 7, sm: 2, md: 7 }} h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => {navigate("/wawancara"); goToTop();}}
             _hover={{
               cursor: 'pointer',
             }}>
-            <Image h={150} src={"./dataMini.png"} fit={"cover"} />
+            <Image h={150} src={"./datawan.svg"} fit={"cover"} />
             <Text fontSize={{base: 'xl', sm: 'sm', md: 'xl'}} as={'b'}>Data/Wawancara</Text>
           </Box>
           <Box p={{ base: 7, sm: 2, md: 7 }} h={{base:260, sm: 210, md: 240, lg: 260}} w={{base:260, sm: 210, md: 240, lg: 260}} align={'center'} justify={'center'} bgColor={"gray.100"} rounded={"40"} onClick={() => {navigate("/magang");  goToTop();}}
             _hover={{
               cursor: 'pointer',
             }}>
-            <Image h={150} src={"./magangMini.png"} fit={"cover"} />
+            <Image h={150} src={"./pkl.svg"} fit={"cover"} />
             <Text fontSize={{base: 'xl', sm: 'sm', md: 'xl'}} as={'b'}>PKL/Magang/KKN</Text>
           </Box>
         </SimpleGrid>

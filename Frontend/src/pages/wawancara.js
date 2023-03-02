@@ -44,7 +44,7 @@ const Header = () => {
         align={'center'}
         py={4}
         spacing={7}>
-        <Image alt={"Hero Image"} fit={"cover"} align={"center"} h={"50vh"} src={'./datawan.png'} />
+        <Image alt={"Hero Image"} fit={"cover"} align={"center"} h={"50vh"} src={'./datawan.svg'} />
         <Text
           color={useColorModeValue('red.800', 'white')}
           fontSize={'5xl'}
@@ -69,18 +69,18 @@ const Persyaratan = () => {
         spacing={'3'}>
         <Text
           color={'grey.400'}
-          fontSize={{ base: '1xl', md: '3xl', lg: '1xl' }}
+          fontSize={'2xl'}
           textAlign={'center'}
           fontWeight={500}
           as='b'
         >
           Persyaratan Surat Keterangan Survey Data/Wawancara/Observasi
         </Text>
-        <Text color={'grey.300'}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
-        <Text as='b' color={'grey.300'}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
-        <Text color={'grey.300'}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar</Text>
-        <Text color={'grey.300'}>3. Pas Photo 3x4 Berwarna</Text>
-        <Text color={'grey.300'}>4. Vaksin 1 & 2, atau 3</Text>
+        <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
+        <Text as='b' color={'grey.300'} align={{ base: 'left', sm: 'center' }}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
+        <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar</Text>
+        <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>3. Pas Photo 3x4 Berwarna</Text>
+        <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>4. Vaksin 1 & 2, atau 3</Text>
       </Stack>
     </Container>
   );

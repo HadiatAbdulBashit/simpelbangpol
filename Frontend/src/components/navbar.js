@@ -82,7 +82,7 @@ export default function WithSubnavigation() {
         <Flex
           flex={{ base: 1 }}
           justify={{ base: 'right', md: 'start' }}>
-          <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50px"} h={"50px"} src={'./logo nav.png'} onClick={() => {
+          <Image alt={"Hero Image"} fit={"cover"} align={"center"} w={"50px"} h={"50px"} src={'./logo.png'} onClick={() => {
             navigate("/");
             goToTop();
           }}

@@ -25,7 +25,7 @@ const Logo = (props: any) => {
           Pelayanan
         </Text>
       </Box>
-      <Image alt={"Hero Image"} fit={"cover"} align={"center"} h={"130px"} src={'./logo nav.png'} />
+      <Image alt={"Hero Image"} fit={"cover"} align={"center"} h={"130px"} src={'./logo.png'} />
     </Box>
   );
 };
@@ -111,7 +111,7 @@ export default function Footer() {
                     border: '2px solid #D8B6A4',
                     textDecoration: 'none' }}
                   leftIcon={<FaPhone color="#D8B6A4" size="20px" />}>
-                  0812 2251 5212  - Andy
+                  0812 2251 5212  - Andi
                 </Button>
               </Link>
               <Link 
