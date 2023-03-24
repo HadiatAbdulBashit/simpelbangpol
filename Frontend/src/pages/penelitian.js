@@ -237,12 +237,13 @@ const FormPengajuan = () => {
               <input type="hidden" value="" name="filename_proposal" id="filename_proposal" />
               <FormControl id="nama" isRequired align={'left'} py={'2'} >
                 <FormLabel>Nama Lengkap</FormLabel>
-                <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan Huruf Kapital dan Sesuai dengan KTP. Contoh: KOKOM KOMALASARI, S.S., M.Hum., Ph.D.)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan <strong>Huruf Kapital dan Sesuai dengan KTP.</strong> Contoh: JANE DOE, S.S., M.Hum., Ph.D.)</Text>
                 <Input id="nama" name="nama" type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="judulPenelitian" isRequired align={'left'} py={'2'} >
                 <FormLabel>Alamat</FormLabel>
                 <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan Alamat KTP)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(<strong>Contoh:</strong> Jl. Wastukencana No. 01 RT. 001/001, Kel. Babakan Ciamis, Kec. Sumur Bandung Kota Bandung)</Text>
                 <Input id="alamat" name='alamat' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="noWhatsapp" isRequired align={'left'} py={'2'} >

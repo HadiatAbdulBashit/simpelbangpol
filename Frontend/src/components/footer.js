@@ -111,7 +111,7 @@ export default function Footer() {
                     border: '2px solid #D8B6A4',
                     textDecoration: 'none' }}
                   leftIcon={<FaPhone color="#D8B6A4" size="20px" />}>
-                  0812 2251 5212  - Andi
+                  0812 2251 5212  - Admin
                 </Button>
               </Link>
               <Link 

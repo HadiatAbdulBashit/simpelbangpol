@@ -236,12 +236,13 @@ const FormPengajuan = () => {
               <input type="hidden" value="" name="filename_suratDinas" id="filename_suratDinas" />
               <FormControl id="nama" isRequired align={'left'} py={'2'} >
                 <FormLabel>Nama Lengkap</FormLabel>
-                <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan Huruf Kapital dan Sesuai dengan KTP. Contoh: KOKOM KOMALASARI, S.S., M.Hum., Ph.D.)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Menggunakan <strong>Huruf Kapital dan Sesuai dengan KTP.</strong> Contoh: JANE DOE, S.S., M.Hum., Ph.D.)</Text>
                 <Input id="nama" name="nama" type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl isRequired align={'left'} py={'2'} >
                 <FormLabel>Alamat</FormLabel>
                 <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan Alamat KTP)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(<strong>Contoh:</strong> Jl. Wastukencana No. 01 RT. 001/001, Kel. Babakan Ciamis, Kec. Sumur Bandung Kota Bandung)</Text>
                 <Input id="alamat" name='alamat' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl isRequired align={'left'} py={'2'} >
@@ -257,11 +258,6 @@ const FormPengajuan = () => {
               <FormControl id="kptKartuPelajar" isRequired align={'left'} py={'2'} >
                 <FormLabel>Nomor Identitas</FormLabel>
                 <Input id="no_identitas" name='no_identitas' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
-              </FormControl>
-              <FormControl id="ktm" isRequired align={'left'} py={'2'} >
-                <FormLabel>Tujuan Dinas</FormLabel>
-                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Badan Kesatuan Bangsa dan Politik)</Text>
-                <Input id="tujuan_dinas" name='tujuan_dinas' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="setifikatVaksin" isRequired align={'left'} py={'2'} >
                 <FormLabel>Anggota</FormLabel>
@@ -298,7 +294,7 @@ const FormPengajuan = () => {
               </FormControl>
               <FormControl id="Nama"  align={'left'} py={'2'} >
                 <FormLabel>Nama Dinas Tujuan</FormLabel>
-                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Universitas Indonesia)</Text>
+                <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Badan Kesatuan Bangsa dan Politik Kota Bandung)</Text>
                 <Input id="nama_dinas_terkait" name='nama_dinas_terkait' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
               <FormControl id="dataDiri"  align={'left'} py={'2'} >
