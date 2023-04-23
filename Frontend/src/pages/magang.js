@@ -14,6 +14,7 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  Link,
   Modal,
   ModalOverlay,
   useDisclosure,
@@ -57,34 +58,40 @@ const Header = () => {
   );
 };
 
-const Persyaratan= () => {
+const Persyaratan = () => {
   return (
     <Container maxW={'6xl'} pb={'60px'}>
       <Stack
-        as={Box}
         align={'center'}
+        textAlign={'center'}
         py={4}
         p={'5'}
-        spacing={'3'}>
-        <Text
-          color={'grey.400'}
-          fontSize={'2xl'}
-          textAlign={'center'}
-          fontWeight={500}
-          as='b'
-          >
+        display={'flex'}>
+        <Text color={'grey.400'} fontSize={'2xl'} fontWeight={500} as='b'>
           Persyaratan Surat Keterangan PKL / Magang / KKN / Pengabdian Masyarakat
         </Text>
-        <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
-          <Text as='b' color={'grey.300'} align={{ base: 'left', sm: 'center' }}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
-          <Text align={{ base: 'left', sm: 'center' }}>2. Melampirkan Surat Dinas Yang Dibubuhi Cap dan Tanda Tangan atas dasar kesediaan menerima dari Instansi/SKPD Tujuan. </Text>
-          <Text align={{ base: 'left', sm: 'center' }}>3. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar</Text>
-          <Text align={{ base: 'left', sm: 'center' }}>4. Pas Photo 3x4 Berwarna</Text>
-          <Text align={{ base: 'left', sm: 'center' }}>5. Vaksin 1 & 2, atau 3</Text>
-          </Stack>
-      </Container>
-    );
-  } 
+        <Text color={'grey.300'}>
+          1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada
+        </Text>
+        <Text as='b' color={'grey.300'}>
+          Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung
+        </Text>
+        <Text>
+          2. Melampirkan Surat Dinas Yang Dibubuhi Cap dan Tanda Tangan atas dasar kesediaan menerima dari Instansi/SKPD Tujuan.
+        </Text>
+        <Text>
+          3. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar
+        </Text>
+        <Text>
+          4. Pas Photo 3x4 Berwarna
+        </Text>
+        <Text align={{ base: 'left', sm: 'center' }}>
+          5. Vaksin 1 & 2, atau 3
+        </Text>
+      </Stack>
+    </Container>
+  );
+}
 
 
 const FormPengajuan = () => {
@@ -170,7 +177,7 @@ const FormPengajuan = () => {
       // console.log(document.getElementById('filename_proposal').value)
     };
   }
-  
+
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const scriptURL = 'https://script.google.com/macros/s/AKfycbx8lgR4eI8ImiklxzPe5WM6I7DWNVUOyPXK2rWH1jdOL3J4BlVs0G4sjNoON_hRu4kc/exec'
@@ -209,7 +216,7 @@ const FormPengajuan = () => {
             Pengajuan Surat
           </Text>
           <Text fontSize={'4xl'} textAlign={'center'} as={'b'} color={'gray.100'}>
-          PKL / Magang / KKN / Pengabdian Masyarakat
+            PKL / Magang / KKN / Pengabdian Masyarakat
           </Text>
         </Stack>
         <Box
@@ -292,16 +299,16 @@ const FormPengajuan = () => {
                 <Text fontSize={'sm'} pb={'2'}>(Contoh: 0811xxxxxxxx)</Text>
                 <Input id="no_hp" name='no_hp' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
-              <FormControl id="Nama"  align={'left'} py={'2'} >
+              <FormControl id="Nama" align={'left'} py={'2'} >
                 <FormLabel>Nama Dinas Tujuan</FormLabel>
                 <Text fontSize={'sm'} pb={'2'}>(Pengisian Sesuai dengan EYD. Contoh: Badan Kesatuan Bangsa dan Politik Kota Bandung)</Text>
                 <Input id="nama_dinas_terkait" name='nama_dinas_terkait' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
-              <FormControl id="dataDiri"  align={'left'} py={'2'} >
+              <FormControl id="dataDiri" align={'left'} py={'2'} >
                 <FormLabel>No Surat Dinas</FormLabel>
                 <Input id="no_surat_dinas" name='no_surat_dinas' type="text" variant={'filled'} color={'black'} _focus={{ color: 'white' }} />
               </FormControl>
-              <FormControl id="dataDiri"  align={'left'} py={'2'} >
+              <FormControl id="dataDiri" align={'left'} py={'2'} >
                 <FormLabel>Tanggal Surat Dinas</FormLabel>
                 <Input variant={'filled'} color={'black'} _focus={{ color: 'white' }} id="tanggal_surat_dinas" name='tanggal_surat_dinas' placeholder="Select Date and Time" size="md" type="date" />
               </FormControl>
@@ -389,6 +396,15 @@ const FormPengajuan = () => {
               </AlertDescription>
               <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
                 Apabila persyaratan tidak lengkap, akan ada keterlambatan untuk penerbitan surat keterangan !!!
+              </AlertDescription>
+              <AlertDescription fontSize='lg' mt={9} fontWeight={500} color={'#67282A'}>
+                Perhatian
+              </AlertDescription>
+              <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
+                Silakan untuk mengisi kuisioner Survei Kepuasan Masyarakat pada unit layanan Badan Kesatuan Bangsa dan Politik Kota Bandung dengan meng-scan barcode di bawah atau dengan mengklik <strong><Link href='http://skm.bandung.go.id/publik/survei/7' target={'_blank'}>Teks Ini</Link></strong>
+              </AlertDescription>
+              <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
+                <Image alt={"Barcode"} fit={"cover"} align={"center"} maxH={"50vh"} boxShadow={'md'} src={'./barcode.jpeg'} />
               </AlertDescription>
               <AlertDescription fontSize='lg' mt={9} fontWeight={500} color={'#67282A'}>
                 Note

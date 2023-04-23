@@ -82,7 +82,7 @@ export default function Footer() {
               <Logo color={useColorModeValue('gray.700', 'white')} />
             </Box>
             <Text fontSize={'sm'} align={'left'}>
-              Copyright @kesbangpolpelayanan 2022
+              Copyright @kesbangpolpelayanan2023
             </Text>
           </Stack>
           <Stack align={'flex-start'}>

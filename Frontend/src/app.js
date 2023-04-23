@@ -1,4 +1,4 @@
-import Login from "./pages/login";
+// import Login from "./pages/login";
 import Home from "./pages/home";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
@@ -16,11 +16,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/faq" element={<Faq />} />
-        <Route path="/penelitian" element={<Penelitian/>} />
-        <Route path="/magang" element={<Magang />} />
-        <Route path="/wawancara" element={<Wawancara />}/>
+        {/* <Route path="login" element={<Login />} /> */}
+        <Route path="faq" element={<Faq />} />
+        <Route path="penelitian" element={<Penelitian/>} />
+        <Route path="magang" element={<Magang />} />
+        <Route path="wawancara" element={<Wawancara />}/>
       </Routes>
       <ScrollToTop />
       <Footer />

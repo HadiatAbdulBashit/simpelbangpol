@@ -15,6 +15,7 @@ import {
   AlertTitle,
   AlertDescription,
   Modal,
+  Link,
   ModalOverlay,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -62,25 +63,19 @@ const Persyaratan = () => {
   return (
     <Container maxW={'6xl'} pb={'60px'}>
       <Stack
-        as={Box}
+        textAlign={'center'}
         align={'center'}
         py={4}
         p={'5'}
         spacing={'3'}>
-        <Text
-          color={'grey.400'}
-          fontSize={'2xl'}
-          textAlign={'center'}
-          fontWeight={500}
-          as='b'
-        >
+        <Text color={'grey.400'} fontSize={'2xl'} textAlign={'center'} fontWeight={500} as='b'>
           Persyaratan Surat Keterangan Survey Data / Wawancara / Observasi
         </Text>
-        <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
-        <Text as='b' color={'grey.300'} align={{ base: 'left', sm: 'center' }}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
-        <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar</Text>
-        <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>3. Pas Photo 3x4 Berwarna</Text>
-        <Text color={'grey.300'} align={{ base: 'left', sm: 'center' }}>4. Vaksin 1 & 2, atau 3</Text>
+        <Text color={'grey.300'}>1. Surat Permohonan Dari Kampus/Lembaga Yang Dibubuhi Cap dan Tanda Tangan Ditujukan Kepada</Text>
+        <Text as='b' color={'grey.300'}>Yth. Kepala Badan Kesatuan Bangsa dan Politik Kota Bandung </Text>
+        <Text color={'grey.300'}>2. Fotocopy KTP, Kartu Tanda Mahasiswa atau Pelajar</Text>
+        <Text color={'grey.300'}>3. Pas Photo 3x4 Berwarna</Text>
+        <Text color={'grey.300'}>4. Vaksin 1 & 2, atau 3</Text>
       </Stack>
     </Container>
   );
@@ -359,6 +354,15 @@ const FormPengajuan = () => {
               </AlertDescription>
               <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
                 Apabila persyaratan tidak lengkap, akan ada keterlambatan untuk penerbitan surat keterangan !!!
+              </AlertDescription>
+              <AlertDescription fontSize='lg' mt={9} fontWeight={500} color={'#67282A'}>
+                Perhatian
+              </AlertDescription>
+              <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
+                Silakan untuk mengisi kuisioner Survei Kepuasan Masyarakat pada unit layanan Badan Kesatuan Bangsa dan Politik Kota Bandung dengan meng-scan barcode di bawah atau dengan mengklik <strong><Link href='http://skm.bandung.go.id/publik/survei/7' target={'_blank'}>Teks Ini</Link></strong>
+              </AlertDescription>
+              <AlertDescription maxWidth='sm' mt={4} color={'#67282A'}>
+                <Image alt={"Barcode"} fit={"cover"} align={"center"} maxH={"50vh"} boxShadow={'md'} src={'./barcode.jpeg'} />
               </AlertDescription>
               <AlertDescription fontSize='lg' mt={9} fontWeight={500} color={'#67282A'}>
                 Note
